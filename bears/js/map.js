@@ -98,8 +98,8 @@ var projection = d3.geoOrthographic();
 
 d3
   .queue()
-  .defer(d3.json, "https://raw.githubusercontent.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/countries.json")
-  .defer(d3.json, "https://raw.githubusercontent.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/ranges.json")
+  .defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/countries.json")
+  .defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/ranges.json")
   .await(function(error, countries, ranges) {
     if (error) throw error;
 
