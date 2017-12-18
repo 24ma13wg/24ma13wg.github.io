@@ -1,6 +1,6 @@
 .bears figcaption { margin: 16px 0; font-style: italic; text-align: center }
 
-.bears .sphere { fill: #f3f6f7; stroke: #e2e2e2 }
+.bears .sphere { fill: #f3f6f7 }
 
 .bears .graticule {
   fill: none;
@@ -9,7 +9,7 @@
   stroke-dasharray: 2, 2
 }
 
-.bears .country { fill: #fff; stroke: #e2e2e2 }
+.bears .country, .bears .land { fill: #fff; stroke: #e2e2e2 }
 
 .bears .sun-bear { fill: #150d09 }
 .bears .sloth-bear { fill: #0e0906 }
@@ -65,3 +65,18 @@
   width:100%;
   height:100%;
 }
+
+.bears .container-6 { max-width: 600px; max-height: 600px; margin: 0 auto }
+.bears .container-6 svg {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.bears .container-6 svg.dragging {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.bears .container-6 #sphere { fill: #f3f6f7; }
+.bears .container-6 .range { fill-opacity: .7 }
