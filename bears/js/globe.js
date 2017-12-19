@@ -19,8 +19,9 @@ var projection = d3.geoOrthographic().rotate([67, -58]);
 var path = d3.geoPath().projection(projection);
 
 function draw() {
-  var width = Math.min(600, window.innerWidth),
-    height = Math.min(600, window.innerHeight);
+  var clientWidth = document.getElementsByClassName("container-6")[0]
+    .clientWidth;
+  var width = Math.min(600, clientWidth), height = Math.min(600, clientWidth);
   projection.fitExtent([[0, 0], [width, height]], { type: "Sphere" });
   svg.attr("width", width).attr("height", height);
   svg.selectAll("path").attr("d", path);
