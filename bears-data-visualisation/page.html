@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="../css/style.css" media="all" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link href="css/style.css" media="all" rel="stylesheet" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -11,7 +13,7 @@
     <h1>Bears and data visualisation</h1>
     <div class="bears">
       <p><strong>Could a brown bear, a black bear, and a polar bear meet?</strong> The answer is: yes. In this post, I'll show you where with a data visualisation; I'll explain how it is constructed with <a href="https://d3js.org/" target="_blank">d3.js</a>; and then extend this example to demonstrate some more complex interactions.</p>
-      <h3>Bear range</h3>
+      <h2>Bear range</h2>
       <p>A brown bear, black bear, and polar bear could cross paths in northern parts of Canada or Alaska. We can see this in the data visualisation, below, which shows some of the (overlapping) areas over which different species of bear range. Such meetings are likely becoming more common as a warmer climate pushes brown bears further north, and polar bears further south, off of the sea ice, onto land. Sightings of polar-brown bear hybrids (<a href="http://sciencenordic.com/grizzly-polar-bear-hybrids-spotted-canadian-arctic" target="_blank">grolar bears</a>) are concrete evidence of such meetings.</p>
       <div class="container-1"><svg height="600" width="600"></svg></div>
       <figcaption>Meeting points</figcaption>
@@ -19,18 +21,18 @@
       <div class="wrapper-for-2-3"><span class="container-2"><svg height="300" width="300"></svg></span><span class="container-3"><svg height="300" width="300"></svg></span></div>
       <figcaption>Northerners</figcaption>
       <p>Insights like these would be difficult to know from, and describe with, tables and charts. Therefore, this is an excellent use case for a data visualisation: the goal of which is to aid discovery, communicate and explain something about the world.</p>
-      <h3>Web page cartography</h3>
+      <h2>Web page cartography</h2>
       <p>The data visualisations on this page are built with a JavaScript library called d3.js. With this library we can load large amounts of data, and construct visual representations of it with HTML, CSS and SVG. Data can be found from an increasing variety of sources, as more and more organisations make their data freely available to everyone. Of course, we are not limited to data downloads. Data could come from anywhere: from user data, captured by <a href="https://www.drupal.org/" target="_blank">Drupal</a>; or from a web service; or from another source.</p>
       <p>D3.js can do many things, and is particularly good for cartography. My process for making these maps is as follows: first download, or trace, the geometry (polygons). Two geometry collections are required: the countries of the world, and the known range of terrestrial mammals. To work with this data I convert it into a more friendly format, called GeoJSON. Next, I filter out all mammals, except bears. I then filter out any redundant data properties, like country names, and add some new properties, like common species names. Finally, I simplify, reduce, and compress the data into another format, called TopoJSON. My data files are now, together, less than 200KB. Phew! All I need to do now is to write the JavaScript. This involves loading the data, projecting the spherical geometry onto a plane, and generating the SVG markup. In this case, I have used an orthographic projection because they are good for displaying globes, but many different projections are possible.</p>
       <div class="container-4"><svg height="600" width="600"></svg></div>
       <figcaption>Orthographic projection</figcaption>
-      <h3>Giant pandas</h3>
+      <h2>Giant pandas</h2>
       <p>Back to bears, which in Asia are generally much smaller – and friendlier – than elsewhere. The areas in which they inhabit are smaller too. Sadly most species in the region are classified as vulnerable, mainly due to a loss of their habitats, which are shrinking due to human activity. Giant panda's now occupy just a few mountain ranges in central China (red area, below); there are less than 2000 remaining in the wild.</p>
       <div class="container-5"><svg height="300" width="300"></svg></div>
       <figcaption>Panda country</figcaption>
       <p>The good news for our bamboo eating friends is that, thanks to conservation efforts, giant panda numbers are increasing again. Their status was recently changed from 'endangered' to 'vulnerable', following a 17% population increase over a decade.</p>
       <div class="video-container"><div class="iframe-container"><iframe src="https://www.youtube.com/embed/EHJxUpqriug?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></div></div>
-      <h3>Virtual globe</h3>
+      <h2>Virtual globe</h2>
       <p>All of the data visualisations, above, are generated by a single script and data set. I'm simply passing in different values for width, height, zoom, rotation etc. It would be a trivial matter to provide a user interface to enable any page visitor to pass in their own values, but let's instead make a globe that's more like the real thing.</p>
       <div class="container-6"></div>
       <figcaption>Give it a spin</figcaption>
