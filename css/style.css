@@ -38,6 +38,10 @@ a:hover, a:active { text-decoration: underline }
   margin: 0 auto
 }
 .home h2 { margin: 0 0 15px; font-size: 40px }
-.home h1 { margin: 100px 0 30px; border-bottom: none; font-size: 80px }
+.home h1 {
+  margin: 100px 0 30px;
+  border-top: none;
+  border-bottom: none;
+  font-size: 80px }
 .home ul { padding: 0; list-style: none }
 .home time { display: block }
