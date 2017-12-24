@@ -9,8 +9,8 @@ html { height: 100% }
 body {
   max-width: 960px;
   min-height: 100%;
-  margin: 15px auto;
-  padding: 0 15px;
+  margin: 10px auto;
+  padding: 0 10px;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   line-height: 35px;
