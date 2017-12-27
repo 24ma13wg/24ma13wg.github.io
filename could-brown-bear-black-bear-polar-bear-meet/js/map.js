@@ -112,7 +112,9 @@
 
       function render(args) {
         var step = args.container.step;
-        var graticule = d3.geoGraticule().step([step, step]);
+        var graticule = d3.geoGraticule()
+          .stepMajor([90, 360])
+          .stepMinor([step, step]);
 
         var width = args.container.width,
           height = args.container.height,
