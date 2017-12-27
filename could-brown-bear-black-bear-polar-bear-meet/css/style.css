@@ -18,7 +18,7 @@
 .bears .american-black-bear { fill: #040202 }
 .bears .spectacled-bear { fill: #120b08 }
 .bears .polar-bear { fill: #efefcf }
-.bears .giant-panda { fill: #ff0000 }
+.bears .giant-panda { fill: #000 }
 
 .bears .range { fill-opacity: .5; stroke: none }
 .bears .area:hover .range:hover { fill-opacity: .7 }
@@ -48,6 +48,7 @@
 
 .bears div.container-5 [class*="-bear"] { display: none }
 .bears .container-5 { border: 1px solid #e2e2e2 }
+.bears .container-5 .giant-panda { fill: #ff0000 }
 
 .bears .container-6 svg {
   cursor: move;
