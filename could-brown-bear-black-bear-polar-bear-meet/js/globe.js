@@ -1,65 +1,52 @@
-var svg = d3.select(".container-6").append("svg");
+const projection = d3.geoOrthographic()
+  .rotate([200, -68])
+  .fitSize([600, 600], { type: "Sphere" });
 
-var sphere = svg
-  .append("path")
-  .datum({ type: "Sphere" })
-  .attr("class", "sphere");
+const queue = d3.queue();
 
-svg
-  .append("path")
-  .datum(d3.geoGraticule())
-  .attr("class", "graticule");
+queue.defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/countries.json")
+queue.defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/ranges.json")
+queue.await(function(error, countries, ranges) {
+  if (error) throw error;
 
-var land = svg.append("path").attr("class", "land");
+  const path = d3.geoPath()
+    .projection(projection);
 
-var range = svg.append("path").attr("class", "range");
+  const svg = d3.select(".container-6 svg")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 600 600");
 
-var projection = d3.geoOrthographic().rotate([67, -58]);
+  svg.append("path")
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path);
 
-var path = d3.geoPath().projection(projection);
+  svg.append("path")
+    .datum(d3.geoGraticule())
+    .attr("class", "graticule")
+    .attr("d", path);
 
-function draw() {
-  var clientWidth = document.getElementsByClassName("container-6")[0]
-    .clientWidth;
-  var width = Math.min(600, clientWidth), height = Math.min(600, clientWidth);
-  projection.fitExtent([[0, 0], [width, height]], { type: "Sphere" });
-  svg.attr("width", width).attr("height", height);
-  svg.selectAll("path").attr("d", path);
-}
+  svg.selectAll(".country")
+    .data(topojson.feature(countries, countries.objects.areas).features)
+    .enter()
+    .append("path")
+    .attr("class", d => { return d.id + " " + d.properties.area; })
+    .attr("d", path);
 
-d3.json("https://unpkg.com/world-atlas/world/110m.json", function(
-  error,
-  world
-) {
-  land
-    .datum(topojson.feature(world, world.objects.land))
-    .attr("opacity", 0)
-    .transition()
-    .duration(600)
-    .attr("opacity", 1);
-  draw();
-});
+  svg.selectAll(".range")
+    .data(topojson.feature(ranges, ranges.objects.areas).features)
+    .enter()
+    .append("path")
+    .attr("class", d => { return d.id + " " + d.properties.area; })
+    .attr("d", path);
 
-d3.json(
-  "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/9011a3e2d6592d99a2f3ff6d9f35c374f0ffb1c5/bears/json/black-bears.json",
-  function(error, ranges) {
-    range
-      .datum(topojson.feature(ranges, ranges.objects.areas))
-      .attr("opacity", 0)
-      .transition()
-      .delay(1200)
-      .duration(600)
-      .attr("opacity", 1);
-    draw();
+  function render() {
+    svg.selectAll("path")
+      .attr("d", path);
   }
-);
 
-draw();
+  d3.geoInertiaDrag(svg, render);
 
-var inertia = d3.geoInertiaDrag(svg, draw);
-d3.timer(function() {
-  if (inertia.timer) return;
-  var rotate = projection.rotate();
-  projection.rotate([rotate[0] + 0.12, rotate[1], rotate[2]]);
-  draw();
 });
