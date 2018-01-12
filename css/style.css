@@ -9,7 +9,7 @@ html { height: 100% }
 body {
   max-width: 960px;
   min-height: 100%;
-  margin: 10px auto;
+  margin: 10px auto 100px;
   padding: 0 10px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
