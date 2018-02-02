@@ -96,8 +96,8 @@
 
   const queue = d3.queue();
 
-  queue.defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/countries.json")
-  queue.defer(d3.json, "https://cdn.rawgit.com/24ma13wg/24ma13wg.github.io/8284e2d17b71bb41b2a4faa6e41d47a3fd6325a2/bears/json/ranges.json")
+  queue.defer(d3.json, "./json/countries.json");
+  queue.defer(d3.json, "./json/ranges.json");
   queue.await(function(error, countries, ranges) {
     if (error) throw error;
 
