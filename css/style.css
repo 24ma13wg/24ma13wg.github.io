@@ -17,7 +17,7 @@ body {
   line-height: 35px
 }
 
-h1, h2 { font-family: FatFrank, sans-seri; font-weight: normal }
+h1, h2 { font-family: FatFrank, sans-serif; font-weight: normal }
 h1 {
   margin: 10px 0 40px;
   padding: 20px 0;
@@ -48,3 +48,13 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
   font-size: 65px
 }
 .home ul { padding: 0; list-style: none }
+
+code {
+  display: block;
+  background: #fafafa;
+  padding: 40px 60px;
+  font-family: monospace, Monaco;
+  border-left: 15px solid #ececec;
+  font-size: 18px;
+  line-height: 30px;
+}
