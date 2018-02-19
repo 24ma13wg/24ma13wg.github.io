@@ -9965,15 +9965,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const results = [
   ["albertshofen", "alzenau", "aschaffenburg", "bergrheinfeld", "buchbrunn", "buergstadt", "collenberg", "dettelbach", "dorfprozelten", "ebelsbach", "eibelstadt", "eisenheim", "elsenfeld", "eltmann", "erlabrunn", "erlenbach-a-main", "eussenheim", "faulbach", "frickenhausen-a-main", "gaedheim", "gemuenden-a-main", "gochsheim", "grafenrheinfeld", "grettstadt", "grossheubach", "grosswallstadt", "hafenlohr", "hasloch", "hassfurt", "himmelstadt", "kahl-a-main", "karbach", "karlstadt", "karlstein-a-main", "kitzingen", "kleinheubach", "kleinostheim", "kleinwallstadt", "klingenberg-a-main", "knetzgau", "kolitzheim", "kreuzwertheim", "laudenbach", "lohr-a-main", "mainaschaff", "mainstockheim", "margetshoechheim", "marktbreit", "marktheidenfeld", "marktsteft", "miltenberg", "neuendorf", "neustadt-a-main", "niedernberg", "nordheim-a-main", "obernburg-a-main", "ochsenfurt", "prosselsheim", "randersacker", "roden", "roellbach", "rothenfels", "roethlein", "sand-a-main", "schonungen", "schwarzach-a-main", "schweinfurt", "segnitz", "sennfeld", "sommerach", "sommerhausen", "stadtprozelten", "steinfeld", "stettfeld", "stockstadt-a-main", "sulzbach-a-main", "sulzfeld-a-main", "theres", "thuengersheim", "triefenstein", "veitshoechheim", "volkach", "waigolshausen", "winterhausen", "wipfeld", "wonfurt", "woerth-a-main", "wuerzburg", "zeil-a-main", "zell-a-main", "zellingen"],
   [],
-  ['kirchzell']
+  ["heigenbruecken", "schoellkrippen", "blankenbach", "geiselbach", "huckelheimer-wald", "oberleichtersbach", "thundorf-i-ufr", "muennerstadt", "trappstadt", "wollbach", "sandberg", "bundorfer-forst", "grossbardorf", "herbstadt", "riedbach", "ruedenhausen", "forstwald", "wiesthal", "aura-i-sinngrund", "erlenbach-b-marktheidenfeld", "frammersbach", "neuhuetten", "niederwerrn", "poppenhausen", "werneck", "geiersberg", "giebelstadt", "hausen-b-wuerzburg", "helmstadt", "leinach", "kuernach", "neubrunn", "eisingen", "gerbrunn", "unterpleichfeld", "johannesberg", "kleinkahl", "krombach", "sommerkahl", "heinrichsthaler-forst", "rothenbucher-forst", "waldaschaffer-forst", "mottener-forst-sued", "ramsthal", "rannungen", "geroda", "massbach", "motten", "strahlungen", "roedelmaier", "mellrichstadter-forst", "bundorf", "markt-einersheim", "moenchberg", "ruedenau", "kirchzell", "lefeatureersbach", "lidersbach", "partenstein", "rechtenbach", "karsbach", "forst-lohrerstrasse", "frammersbacher-forst", "sulzheim", "dittelbrunn", "nonnenkloster", "hoechberg", "rimpar", "rottendorf", "estenfeld", "heimbuchenthal", "laufach", "dammbach", "glattbach", "haibach", "oberthulba", "sulzdorf-a-d-lederhecke", "willmars", "forst-schmalwasser-nord", "ermershausen", "afeaturehausen", "breitbrunn", "koenigsberg-i-bay", "mainbernheim", "martinsheim", "prichsenstadt", "roedelsee", "seinsheim", "neunkirchen", "hausen", "schollbrunn", "bischbrunn", "fellen", "herrnwald", "ruppertshuettener-forst", "gerolzhofen", "michelau-i-steigerwald", "oberschwarzach", "schwanfeld", "schwebheim", "uechtelhausen", "buergerwald", "sonderhofen", "guentersleben", "hettstadt", "altertheim", "waldbrunn", "waldbuettelbrunn", "guttenberger-wald", "heinrichsthal", "rothenbuch", "bessenbach", "westerngrund", "wiesener-forst", "waldfensterer-forst", "dreistelzer-forst", "oerlenbach", "sondheim-v-d-rhoen", "sulzfeld", "sulzfelder-forst", "weigler", "hausen", "rentweinsdorf", "biebelried", "castell", "iphofen", "kleinlangheim", "willanzheim", "obernbreit", "schneeberg", "retzstadt", "thuengen", "esselbach", "goessenheim", "haurain", "langenprozeltener-forst", "geldersheim", "wasserlosen", "dingolshausen", "euerbach", "hundelshausen", "wustvieler-forst", "aub", "theilheim", "kirchheim", "oberpleichfeld", "reichenberg", "remlingen", "riedenheim", "buetthard", "geroldshausen", "mespelbrunn", "waldaschaff", "weibersbrunn", "wiesen", "grossostheim", "forst-hain-i-spessart", "rohrbrunner-forst", "sailaufer-forst", "schoellkrippener-forst", "nuedlingen", "sulzthal", "hendungen", "maroldsweisach", "pfarrweisach", "rauhenebrach", "burgpreppach", "ebern", "hofheim-i-ufr", "kirchlauter", "abtswind", "grosslangheim", "wiesenbronn", "wiesenthefeature", "altenbuch", "wiesentheid", "eschau", "hohe-wart", "urspringen", "arnstein", "birkenfeld", "fuerstl-loewenstein-scher-park", "partensteiner-forst", "burgjoss", "forst-aura", "luelsfeld", "stadtlauringen", "donnersdorf", "frankenwinheim", "stollbergerforst", "vollburg", "bergtheim", "greussenheim", "uettingen", "holzkirchen", "kist", "kleinrinderfeld", "gaukoenigshofen", "gelchsheim", "gramschatzer-wald", "irtenberger-wald"]
 ];
 
 __WEBPACK_IMPORTED_MODULE_0_d3__["d" /* selectAll */]("svg").each(function() {
 
   const svg = __WEBPACK_IMPORTED_MODULE_0_d3__["c" /* select */](this);
-
   const id = +svg.attr("id");
-
   const path = __WEBPACK_IMPORTED_MODULE_0_d3__["a" /* geoPath */]();
 
   __WEBPACK_IMPORTED_MODULE_0_d3__["b" /* json */]("../json/lower-franconia.json", function(error, topology) {
@@ -10019,7 +10017,15 @@ __WEBPACK_IMPORTED_MODULE_0_d3__["d" /* selectAll */]("svg").each(function() {
       .attr("cx", 557)
       .attr("cy", 280)
       .attr("r", results[id].length > 0 ? 0 : 70)
-      .attr("class", "proximity");
+      .attr("class", "range");
+
+    svg.append("circle")
+      .transition()
+      .delay(1500)
+      .attr("cx", 557)
+      .attr("cy", 280)
+      .attr("r", results[id].length > 0 ? 0 : 3)
+      .attr("class", "desk");
 
     /* svg.on("mousedown.log", function () {
      cconsole.log(d3.mouse(this));
