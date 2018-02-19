@@ -9962,67 +9962,70 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const svg = __WEBPACK_IMPORTED_MODULE_0_d3__["d" /* selectAll */]("svg").append("g");
+const results = [
+  ["albertshofen", "alzenau", "aschaffenburg", "bergrheinfeld", "buchbrunn", "buergstadt", "collenberg", "dettelbach", "dorfprozelten", "ebelsbach", "eibelstadt", "eisenheim", "elsenfeld", "eltmann", "erlabrunn", "erlenbach-a-main", "eussenheim", "faulbach", "frickenhausen-a-main", "gaedheim", "gemuenden-a-main", "gochsheim", "grafenrheinfeld", "grettstadt", "grossheubach", "grosswallstadt", "hafenlohr", "hasloch", "hassfurt", "himmelstadt", "kahl-a-main", "karbach", "karlstadt", "karlstein-a-main", "kitzingen", "kleinheubach", "kleinostheim", "kleinwallstadt", "klingenberg-a-main", "knetzgau", "kolitzheim", "kreuzwertheim", "laudenbach", "lohr-a-main", "mainaschaff", "mainstockheim", "margetshoechheim", "marktbreit", "marktheidenfeld", "marktsteft", "miltenberg", "neuendorf", "neustadt-a-main", "niedernberg", "nordheim-a-main", "obernburg-a-main", "ochsenfurt", "prosselsheim", "randersacker", "roden", "roellbach", "rothenfels", "roethlein", "sand-a-main", "schonungen", "schwarzach-a-main", "schweinfurt", "segnitz", "sennfeld", "sommerach", "sommerhausen", "stadtprozelten", "steinfeld", "stettfeld", "stockstadt-a-main", "sulzbach-a-main", "sulzfeld-a-main", "theres", "thuengersheim", "triefenstein", "veitshoechheim", "volkach", "waigolshausen", "winterhausen", "wipfeld", "wonfurt", "woerth-a-main", "wuerzburg", "zeil-a-main", "zell-a-main", "zellingen"],
+  [],
+  ['kirchzell']
+];
 
-const path = __WEBPACK_IMPORTED_MODULE_0_d3__["a" /* geoPath */]();
+__WEBPACK_IMPORTED_MODULE_0_d3__["d" /* selectAll */]("svg").each(function() {
 
-const main = ["albertshofen", "alzenau", "aschaffenburg", "bergrheinfeld", "buchbrunn", "buergstadt", "collenberg", "dettelbach", "dorfprozelten", "ebelsbach", "eibelstadt", "eisenheim", "elsenfeld", "eltmann", "erlabrunn", "erlenbach-a-main", "eussenheim", "faulbach", "frickenhausen-a-main", "gaedheim", "gemuenden-a-main", "gochsheim", "grafenrheinfeld", "grettstadt", "grossheubach", "grosswallstadt", "hafenlohr", "hasloch", "hassfurt", "himmelstadt", "kahl-a-main", "karbach", "karlstadt", "karlstein-a-main", "kitzingen", "kleinheubach", "kleinostheim", "kleinwallstadt", "klingenberg-a-main", "knetzgau", "kolitzheim", "kreuzwertheim", "laudenbach", "lohr-a-main", "mainaschaff", "mainstockheim", "margetshoechheim", "marktbreit", "marktheidenfeld", "marktsteft", "miltenberg", "neuendorf", "neustadt-a-main", "niedernberg", "nordheim-a-main", "obernburg-a-main", "ochsenfurt", "prosselsheim", "randersacker", "roden", "roellbach", "rothenfels", "roethlein", "sand-a-main", "schonungen", "schwarzach-a-main", "schweinfurt", "segnitz", "sennfeld", "sommerach", "sommerhausen", "stadtprozelten", "steinfeld", "stettfeld", "stockstadt-a-main", "sulzbach-a-main", "sulzfeld-a-main", "theres", "thuengersheim", "triefenstein", "veitshoechheim", "volkach", "waigolshausen", "winterhausen", "wipfeld", "wonfurt", "woerth-a-main", "wuerzburg", "zeil-a-main", "zell-a-main", "zellingen"];
+  const svg = __WEBPACK_IMPORTED_MODULE_0_d3__["c" /* select */](this);
 
-const badKissingen = [];
+  const id = +svg.attr("id");
 
-const noRivers = ['kirchzell'];
-
-const result = main;
+  const path = __WEBPACK_IMPORTED_MODULE_0_d3__["a" /* geoPath */]();
 
   __WEBPACK_IMPORTED_MODULE_0_d3__["b" /* json */]("../json/lower-franconia.json", function(error, topology) {
-  if (error) throw error;
+    if (error) throw error;
 
-  const g = svg.selectAll("path")
-    .data(__WEBPACK_IMPORTED_MODULE_1_topojson__["a" /* feature */](topology, topology.objects.features).features)
-    .enter()
-    .append("g")
-    .attr("class", d => {
-      const feature = d.properties.feature + " ";
-      const slug = __WEBPACK_IMPORTED_MODULE_2_speakingurl___default()(d.properties.name);
-      const status = result.indexOf(slug) > -1 ? " active" : "";
-      return feature + slug + status;
-    });
+    const g = svg.selectAll("path")
+      .data(__WEBPACK_IMPORTED_MODULE_1_topojson__["a" /* feature */](topology, topology.objects.features).features)
+      .enter()
+      .append("g")
+      .attr("class", d => {
+        const feature = d.properties.feature + " ";
+        const slug = __WEBPACK_IMPORTED_MODULE_2_speakingurl___default()(d.properties.name);
+        const status = results[id].indexOf(slug) > -1 ? " active" : "";
+        return feature + slug + status;
+      });
 
-  svg.selectAll(".river")
-    .append("path")
-    .attr("d", path)
-    .style("stroke-width", d => { return d.properties.name == "Main" ? 3 : 1; })
-    .append("title")
-    .text(d => { return d.properties.name });
+    svg.selectAll(".river")
+      .append("path")
+      .attr("d", path)
+      .style("stroke-width", d => { return d.properties.name == "Main" ? 3 : 1; })
+      .append("title")
+      .text(d => { return d.properties.name });
 
-  svg.selectAll(".community")
-    .append("path")
-    .attr("d", path)
-    .append("title")
-    .text(d => { return d.properties.name });
+    svg.selectAll(".community")
+      .append("path")
+      .attr("d", path)
+      .append("title")
+      .text(d => { return d.properties.name });
 
-  svg.selectAll(".marker")
-    .append("text")
-    .attr("transform", d => { return "translate(" + path.centroid(d) + ")"; })
-    .text(d => { return d.properties.name });
+    svg.selectAll(".marker")
+      .append("text")
+      .attr("transform", d => { return "translate(" + path.centroid(d) + ")"; })
+      .text(d => { return d.properties.name });
 
-  svg.selectAll(".active path")
-    .transition()
-    .delay(1500)
-    .style("fill", "white");
+    svg.selectAll(".active path")
+      .transition()
+      .delay(1500)
+      .style("fill", "white");
 
-  svg.append("circle")
-    .transition()
-    .delay(1500)
-    .attr("cx", 557)
-    .attr("cy", 280)
-    .attr("r", 70)
-    .attr("class", "proximity");
+    svg.append("circle")
+      .transition()
+      .delay(1500)
+      .attr("cx", 557)
+      .attr("cy", 280)
+      .attr("r", results[id].length > 0 ? 0 : 70)
+      .attr("class", "proximity");
 
-  svg.on("mousedown.log", function() {
-    console.log(__WEBPACK_IMPORTED_MODULE_0_d3__["c" /* mouse */](this));
+    /* svg.on("mousedown.log", function () {
+     cconsole.log(d3.mouse(this));
+    }); */
+
   });
-
 });
 
 
@@ -10078,7 +10081,7 @@ const result = main;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_d3_scale__ = __webpack_require__(410);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_d3_selection__ = __webpack_require__(1);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_23_d3_selection__["d"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_23_d3_selection__["f"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_23_d3_selection__["g"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_d3_shape__ = __webpack_require__(443);
 /* unused harmony namespace reexport */
