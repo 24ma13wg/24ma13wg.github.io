@@ -3,5 +3,21 @@ path { fill: none; pointer-events: all }
 .community path:hover { fill-opacity: .5 }
 .river { stroke: #22b3d2; stroke-linecap: round }
 text { fill: #22b3d2; font: 12px sans-serif }
-.range { fill: white; fill-opacity: .3; stroke: white; stroke-width: 2; }
-.desk { fill: white }
+.graph-scroll-active .active path {
+  transition: fill-opacity .5s linear .5s;
+  fill-opacity: 0
+}
+.range {
+  fill: white;
+  fill-opacity: 0;
+  stroke: white;
+  stroke-width: 2;
+  stroke-opacity: 0;
+}
+.graph-scroll-active .range {
+  fill-opacity: .3;
+  transition: fill-opacity .5s linear .5s;
+  stroke-opacity: 1;
+}
+.desk { fill: white; fill-opacity: 0 }
+.graph-scroll-active .desk { fill-opacity: 1 }
