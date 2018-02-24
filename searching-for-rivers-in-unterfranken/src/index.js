@@ -18,7 +18,7 @@ d3.selectAll("svg").each(function() {
   const id = +svg.attr("id");
   const path = d3.geoPath();
 
-  d3.json("../json/lower-franconia.json", function(error, topology) {
+  d3.json("json/lower-franconia.json", function(error, topology) {
     if (error) throw error;
 
     const g = svg.selectAll("path")
