@@ -48,7 +48,7 @@
     "country": "Germany"
   }
 }</pre>
-    <p>A geometry type may be a: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>; and there are multi types for these: <code>MultiPoint</code>, <code>MultiLineString</code>, and <code>MultiPolygon</code>. Several features, like the above location, can be contained within a <code>FeatureCollection</code>.</p>
+    <p>A geometry type may be a: <code>Point</code>, <code>LineString</code>, or <code>Polygon</code>; and there are multi types for these: <code>MultiPoint</code>, <code>MultiLineString</code>, and <code>MultiPolygon</code>. Several features, like the above location, can be contained within a <code>FeatureCollection</code>.</p>
     <p>Bad Kissingen is one of many communities in the Lower Franconia region (Unterfranken in German). Like many of its neighbours, a river runs through it: the Fränkische Saale. The boundary of the community forms a single shape; it maps to the <code>Polygon</code> geometry type. The water courses that make up the river can be imagined as a series of lines joined together; they map to the <code>MultiLineString</code> type.</p>
     <p>I've found some maps of Lower Franconia online, so that I can process all of the region's rivers and communities into <a href="http://ndjson.org/" target="_blank">NDJSON</a> (newline delimited – another variation of JSON). I create an Elasticsearch index, and load the data into it. Now I’m ready to search. <em>Gut, wir machen einen Test!</em></p>
     <h2>Searching for rivers</h2>
