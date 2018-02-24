@@ -49,12 +49,18 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
 }
 .home ul { padding: 0; list-style: none }
 
-code {
+pre, code {
+  font-family: monospace, Monaco;
+  background: #fafafa;
+  font-size: 18px
+}
+code { padding: 5px 10px }
+pre {
   display: block;
   background: #fafafa;
-  padding: 40px 60px;
-  font-family: monospace, Monaco;
+  padding: 40px;
   border-left: 15px solid #ececec;
-  font-size: 18px;
   line-height: 30px;
 }
+
+.cta { background: #fff8ef; border: 1px solid #efdfca; padding: 20px }
