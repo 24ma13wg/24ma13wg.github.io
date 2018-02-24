@@ -48,11 +48,11 @@
     "country": "Germany"
   }
 }</pre>
-    <p>A geometry type may be a: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>, <code>MultiPoint</code>, <code>MultiLineString</code>, or a <code>MultiPolygon</code>. Several features, like the above location, can be contained within a <code>FeatureCollection</code>.</p>
+    <p>A geometry type may be a: <code>Point</code>, <code>LineString</code>, <code>Polygon</code>; and there are multi types for these: <code>MultiPoint</code>, <code>MultiLineString</code>, and <code>MultiPolygon</code>. Several features, like the above location, can be contained within a <code>FeatureCollection</code>.</p>
     <p>Bad Kissingen is one of many communities in the Lower Franconia region (Unterfranken in German). Like many of its neighbours, a river runs through it: the Fränkische Saale. The boundary of the community forms a single shape; it maps to the <code>Polygon</code> geometry type. The water courses that make up the river can be imagined as a series of lines joined together; they map to the <code>MultiLineString</code> type.</p>
-    <p>I've found some maps of Lower Franconia online, so that I can process all of the region's rivers and communities into <a href="http://ndjson.org/" target="_blank">NDJSON</a> (newline delimited, another variation of JSON); create an Elasticsearch index; then load the data into it. Now I'm ready to search. <em>Gut, wir machen einen Test!</em></p>
+    <p>I've found some maps of Lower Franconia online, so that I can process all of the region's rivers and communities into <a href="http://ndjson.org/" target="_blank">NDJSON</a> (newline delimited – another variation of JSON). I create an Elasticsearch index, and load the data into it. Now I’m ready to search. <em>Gut, wir machen einen Test!</em></p>
     <h2>Searching for rivers</h2>
-    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. Time to try some more complex queries. I'll begin with the main river in the region, aptly called the river <em>Main</em>. I wonder how many communities does it flow through? The query I send to my index looks like this:</p>
+    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. Time to try some more complex queries. I'll begin with the main river in the region, aptly called the river <em>Main</em>. I wonder how many communities it flows through? The query I send to my index looks like this:</p>
 <pre>GET lower_franconia/default/_search
 {
   "query": {
@@ -83,19 +83,19 @@
     <p>This query is a compound <code>bool</code> query, which performs two operations.</p>
     <p>In the first part, I am specifying a <code>must</code> key. In this context, I have a <code>match</code> query specifying community features as a constraint. This means that only documents in my index which have a value of <code>community</code> in the <code>feature</code> field will be returned.</p>
     <p>The second part, of the query is being run in a <code>filter</code> context. Here, I have a <code>geo_shape</code> query specifying document id <code>12</code> (this document describes the river Main) and a relationship of <code>intersects</code> as the constraint.</p>
-    <p>Put simply, match all community shapes that intersect with a particular line.</p>
+    <p>Put simply, match all community shapes that intersect with a particular river line.</p>
     <p>I get 91 hits. A quarter of all communities are on the Main. The result is formatted in – yes you guessed it – JSON. Although JSON is quite readable, it's not easy to understand at a glance. Better to create a data visualisation with <a href="https://d3js.org/" target="_blank">d3.js</a> so that the results can be understood instantly.</p>
     <svg id="0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
-    <figcaption>Hey Elasticsearch, which communities does the river Main flows through?</figcaption>
+    <figcaption>Hey Elasticsearch, which communities does the river Main flow through?</figcaption>
     <p>For more details about how this is done, see my previous post on <a href="https://24ma13wg.github.io/could-brown-bear-black-bear-polar-bear-meet/page.html" target="_blank">web page cartography</a>. Next up, how many rivers are close by? If I want to stroll by a river this evening, but don't want to travel, say more than ten kilometres, what are my options?</p>
     <svg id="1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
     <figcaption>How many rivers are within 10km of my desk?</figcaption>
     <p>Four hits come back: the rivers Aschach, Fränkische Saale, of course, Thulba, and Premich. This query is slightly different from the previous one. This time I only want rivers to be returned. Also, I am specifying a new shape that does not exist in the index: a circle which is centred on my current location with a radius of 10 kilometres.</p>
-    <p>One more. Where shouldn't I go if I want to walk by a river. For this query I use a <code>must_not</code> key and filter out the communities that intersect with any of the 22 rivers. I get 199 hits – just over half of the communities in Lower Franconia are riverless.</p>
+    <p>One more. Where shouldn't I go if I want to walk by a river. For this query I use a <code>must_not</code> key and filter out the communities that intersect with any of the 22 rivers. I get 199 hits – just over half of the communities in Lower Franconia are without a river.</p>
     <svg id="2" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
     <figcaption>Which communities do not have a river?</figcaption>
     <h2>Real world application</h2>
-    <p>I have used the rivers and communities of Lower Franconia as a simple example to illustrate how geographical features can be indexed with Elasticsearch, and the query results visualised with d3.js. Could it have a practical application? Well, the index could be used, for example, to find out which communities to warn if a flood alert was issued for a particular river; or perhaps it could be used, in a drier region, to predict where droughts might cause problems for agriculture. Of course, we are not limited to river courses and community boundaries. Any combination of geographical features can be mapped and indexed and, therefore, there are many possible applications of this.</p>
+    <p>I have used the rivers and communities of Lower Franconia as a simple example to illustrate how geographical features can be indexed with Elasticsearch, and the query results visualised with d3.js. Could it have a practical application? Well, the index could be used, for example, to find out which communities to warn if a flood alert was issued for a particular river; or perhaps it could be used, in a drier region, to predict where droughts might cause problems for agriculture. Of course, we are not limited to river courses and community boundaries. Any combination of geographical features can be mapped and indexed and, therefore, there are many possible applications.</p>
     <p><em>Data: OpenStreetMap + Open Data Portal des Freistaats Bayern</em></p>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
     <a href="https://twitter.com/24ma13wg?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow</a>

@@ -54,9 +54,11 @@ pre, code {
   background: #fafafa;
   font-size: 18px
 }
-code { padding: 5px 10px }
+code { padding: 5px }
 pre {
   display: block;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   background: #fafafa;
   padding: 40px;
   border-left: 15px solid #ececec;
