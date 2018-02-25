@@ -11,7 +11,7 @@ text { fill: #22b3d2; font: 12px sans-serif }
   fill: white;
   fill-opacity: 0;
   stroke: white;
-  stroke-width: 2;
+  stroke-width: 3;
   stroke-opacity: 0;
 }
 .graph-scroll-active .range {
