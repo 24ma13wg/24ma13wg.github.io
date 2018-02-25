@@ -53,7 +53,7 @@
     <p>Bad Kissingen is one of many communities in the Lower Franconia region (Unterfranken in German). Like many of its neighbours, a river runs through it: the Fränkische Saale. The boundary of the community forms a single shape; it maps to the <code>Polygon</code> geometry type. The water courses that make up the river can be imagined as a series of lines joined together; they map to the <code>MultiLineString</code> type.</p>
     <p>I've found some maps of Lower Franconia online, so that I can process all of the region's rivers and communities into <a href="http://ndjson.org/" target="_blank">NDJSON</a> (newline delimited – another variation of JSON). I create an Elasticsearch index, and load the data into it. Now I’m ready to search. <em>Gut, wir machen einen Test!</em></p>
     <h2>Searching for rivers</h2>
-    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. Time to try some more complex queries. I'll begin with the main river in the region, aptly called the river <em>Main</em>. I wonder how many communities it flows through? The query I send to my index looks like this:</p>
+    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. There are many more water courses in the downloaded data, but only 22 are defined as rivers. Time to try some more complex queries. I'll begin with the main river in the region, aptly called the river <em>Main</em>. I wonder how many communities it flows through? The query I send to my index looks like this:</p>
 <pre>GET lower_franconia/default/_search
 {
   "query": {
@@ -83,14 +83,14 @@
 }</pre>
     <p>This query is a compound <code>bool</code> query, which performs two operations.</p>
     <p>In the first part, I am specifying a <code>must</code> key. In this context, I have a <code>match</code> query specifying community features as a constraint. This means that only documents in my index which have a value of <code>community</code> in the <code>feature</code> field will be returned.</p>
-    <p>The second part of the query is being run in a <code>filter</code> context. Here, I have a <code>geo_shape</code> query specifying document id <code>12</code> (this document describes the river Main) and a relationship of <code>intersects</code> as the constraint.</p>
+    <p>The second part of the query is being run in a <code>filter</code> context. Here, I have a <code>geo_shape</code> query specifying document id <code>12</code> (this document describes the river Main) and a relationship of <code>intersects</code> as the constraints.</p>
     <p>Put simply, match all community shapes that intersect with a particular river line.</p>
     <p>I get 91 hits. A quarter of all communities are on the Main. The result is formatted in – yes you guessed it – JSON. Although JSON is quite readable, it's not easy to understand at a glance. Better to create a data visualisation with <a href="https://d3js.org/" target="_blank">d3.js</a> so that the results can be understood instantly.</p>
     <svg id="0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
     <figcaption>Hey Elasticsearch, which communities does the river Main flow through?</figcaption>
     <p>For more details about how this is done, see my previous post on <a href="https://24ma13wg.github.io/could-brown-bear-black-bear-polar-bear-meet/page.html" target="_blank">web page cartography</a>. Next up, how many rivers are close by? If I want to stroll by a river this evening, but don't want to travel, say more than ten kilometres, what are my options?</p>
     <svg id="1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
-    <figcaption>How many rivers are within 10 kilometres of my desk?</figcaption>
+    <figcaption>How many rivers are within ten kilometres of my desk?</figcaption>
     <p>Four hits come back: the rivers Aschach, Fränkische Saale, of course, Thulba, and Premich. This query is slightly different from the previous one. This time I only want rivers to be returned. Also, I am specifying a new shape that does not exist in the index: a circle which is centred on my current location with a radius of ten kilometres.</p>
     <p>One more. Where shouldn't I go if I want to walk by a river. For this query I use a <code>must_not</code> key to filter out the communities that intersect with any of the 22 rivers. I get 199 hits – just over half of the communities in Lower Franconia are without a river.</p>
     <svg id="2" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
