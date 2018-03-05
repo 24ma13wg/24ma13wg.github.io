@@ -10451,6 +10451,7 @@ d3.selectAll("svg").each(function() {
   const svg = d3.select(this);
   const id = +svg.attr("id");
   const path = d3.geoPath();
+  const tooltip = d3.select(".tooltip");
 
   d3.json("json/lower-franconia.json", function(error, topology) {
     if (error) throw error;
@@ -10469,15 +10470,27 @@ d3.selectAll("svg").each(function() {
     svg.selectAll(".river")
       .append("path")
       .attr("d", path)
-      .style("stroke-width", d => { return d.properties.name == "Main" ? 3 : 1; })
-      .append("title")
-      .text(d => { return d.properties.name });
+      .style("stroke-width", d => { return d.properties.name == "Main" ? 3 : 1; });
 
     svg.selectAll(".community")
       .append("path")
       .attr("d", path)
-      .append("title")
-      .text(d => { return d.properties.name });
+      .on("mouseover", function() {
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", 1);
+      })
+      .on("mousemove", function(d) {
+        tooltip
+          .text(d.properties.name)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 25) + "px");
+      })
+      .on("mouseout", function() {
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+      });
 
     svg.selectAll(".marker")
       .append("text")

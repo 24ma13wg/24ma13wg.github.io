@@ -41,12 +41,14 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
 }
 .home h2 { margin: 0 0 15px; font-size: 40px }
 .home h1 {
-  margin: 80px 0 0;
+  margin: 50px 0 0;
   border-top: none;
   border-bottom: none;
   font-size: 65px
 }
-.home ul { padding: 0; list-style: none }
+
+.home ul, .archive ul { padding: 0; list-style: none }
+.home li:last-child { margin-top: 20px }
 
 pre, code {
   font-family: monospace, Monaco;

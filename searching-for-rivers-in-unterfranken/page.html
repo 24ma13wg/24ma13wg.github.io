@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113284969-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-113284969-1');
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +46,7 @@
     <p>Bad Kissingen is one of many communities in the Lower Franconia region (<em>Unterfranken</em> in German). Like many of its neighbours, a river runs through it: the Fränkische Saale. The boundary of the community forms a single shape; it maps to the <code>Polygon</code> geometry type. The water courses that make up the river can be imagined as a series of lines joined together; they map to the <code>MultiLineString</code> type.</p>
     <p>I've found some maps of Lower Franconia online, so that I can process all of the region's rivers and communities into <a href="http://ndjson.org/" target="_blank">NDJSON</a> (newline delimited – another variation of JSON). I create an Elasticsearch index, and load the data into it. Now I’m ready to search. <em>Gut, wir machen einen Test!</em></p>
     <h2>Searching for rivers</h2>
-    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. There are many more water courses in the downloaded data, but only 22 are defined as rivers. Time to try some more complex queries. I'll begin with the main river in the region, aptly called the river <em>Main</em>. I wonder how many communities it flows through? The query I send to my index looks like this:</p>
+    <p>A simple term query tells me that there are 22 rivers and 360 communities in Lower Franconia. There are many more water courses in the downloaded data, but only 22 are defined as rivers. Time to try some more complex queries. I'll begin with the region's principle river, the river Main, which sounds like <em>Mine</em> in German. I wonder how many communities it flows through? The query I send to my index looks like this:</p>
 <pre>GET lower_franconia/default/_search
 {
   "query": {
@@ -101,6 +94,7 @@
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
     <a href="https://twitter.com/24ma13wg?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow</a>
     <p class="cta"><em>I'm a web applications developer at <a href="https://wunder.io/" target="_blank">Wunder</a>. Please contact our sales team to find out about the projects we deliver: <a href="mailto:paul.hagger@wunder.io">paul.hagger@wunder.io</a> (Government) or <a href="mailto:olivier.severs@wunder.io">olivier.severs@wunder.io</a> (Commercial).</em></p>
+    <div class="tooltip"></div>
     <script src="bundle.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
