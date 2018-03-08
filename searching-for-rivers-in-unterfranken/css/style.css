@@ -34,4 +34,5 @@ text { fill: #22b3d2; font: 12px sans-serif }
   text-align: center;
   font: 12px sans-serif;
   pointer-events: none;
+  opacity: 0;
 }
