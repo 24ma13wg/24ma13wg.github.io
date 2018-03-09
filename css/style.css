@@ -66,4 +66,6 @@ pre {
   line-height: 30px;
 }
 
+.twitter-tweet-button, .twitter-follow-button { vertical-align: text-bottom }
+
 .cta { background: #fff8ef; border: 1px solid #efdfca; padding: 20px }
