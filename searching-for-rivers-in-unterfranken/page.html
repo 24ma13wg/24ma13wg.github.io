@@ -51,32 +51,32 @@
 {
   "query": {
     "bool": {
-      "must": [
+      "filter": [
         {
-          "match": {
+          "term": {
             "feature": "community"
           }
-        }
-      ],
-      "filter": {
-        "geo_shape": {
-          "geometry": {
-            "indexed_shape": {
-              "index": "lower_franconia",
-              "type": "default",
-              "id": "12",
-              "path": "geometry"
-            },
-            "relation": "intersects"
+        },
+        {
+          "geo_shape": {
+            "geometry": {
+              "indexed_shape": {
+                "index": "lower_franconia",
+                "type": "default",
+                "id": "12",
+                "path": "geometry"
+              },
+              "relation": "intersects"
+            }
           }
         }
-      }
+      ]
     }
   }
 }</pre>
-    <p>This query is a compound <code>bool</code> query, which performs two operations.</p>
-    <p>In the first part, I am specifying a <code>must</code> key. In this context, I have a <code>match</code> query specifying community features as a constraint. This means that only documents in my index which have a value of <code>community</code> in the <code>feature</code> field will be returned.</p>
-    <p>The second part of the query is being run in a <code>filter</code> context. Here, I have a <code>geo_shape</code> query specifying document id <code>12</code> (this document describes the river Main) and a relationship of <code>intersects</code> as the constraints.</p>
+    <p>This query is being run in a <code>filter</code> context. This means that relevance scores are not calculated: I'm not concerned with how well things match, but rather whether a match exists or does not. In this context, I specify an array of two items.</p>
+    <p>In the first item, I am specifying a <code>term</code> key with community features as a constraint. This means that only documents in my index which have a value of <code>community</code> in the <code>feature</code> field will be returned.</p>
+    <p>In the second item of the array, I have a <code>geo_shape</code> query specifying document number <code>12</code> (this document describes the river Main) and a relationship of <code>intersects</code> as the constraints.</p>
     <p>Put simply, match all community shapes that intersect with a particular river line.</p>
     <p>I get 91 hits. A quarter of all communities are on the Main. The result is formatted in – yes you guessed it – JSON. Although JSON is quite readable, it's not easy to understand at a glance. Better to create a data visualisation with <a href="https://d3js.org/" target="_blank">d3.js</a> so that the results can be understood instantly.</p>
     <svg id="0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
@@ -93,7 +93,7 @@
     <p><em>Data: OpenStreetMap + Open Data Portal des Freistaats Bayern</em></p>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
     <a href="https://twitter.com/24ma13wg?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow</a>
-    <p class="cta"><em>I'm a web applications developer at <a href="https://wunder.io/" target="_blank">Wunder</a>. Please contact our sales team to find out about the projects we deliver: <a href="mailto:paul.hagger@wunder.io">paul.hagger@wunder.io</a> (Government) or <a href="mailto:olivier.severs@wunder.io">olivier.severs@wunder.io</a> (Commercial).</em></p>
+    <p class="cta"><em>I'm a web applications developer at <a href="https://wunder.io/" target="_blank">Wunder</a>. To learn about the projects we deliver, and to tell us about your project, please contact our business development consultant: <a href="mailto:olivier.severs@wunder.io">olivier.severs@wunder.io</a>.</em></p>
     <div class="tooltip"></div>
     <script src="bundle.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
