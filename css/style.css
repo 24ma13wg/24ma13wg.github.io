@@ -71,4 +71,4 @@ pre {
 .cta.wunder { background: #fffbf5; border-color: #ff9600 }
 .cta svg { flex-shrink: 0 }
 .cta path { fill: black }
-.cta span { flex: 1; margin-left: 20px }
+.cta span { margin-left: 20px }
