@@ -66,6 +66,14 @@ pre {
   line-height: 30px;
 }
 
-.cta { padding: 20px; border: 1px solid }
-.twitter { background: #f5fbfe; border-color: #1da1f2 }
-.wunder { background: #fffbf5; border-color: #ff9600 }
+.cta { display: flex; align-items: center; padding: 20px; border: 1px solid }
+.cta.twitter { background: #f5fbfe; border-color: #1da1f2 }
+.cta.wunder { background: #fffbf5; border-color: #ff9600 }
+.cta svg { flex-shrink: 0 }
+.cta path { fill: black }
+.cta span {
+  flex: 1;
+  margin-left: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
