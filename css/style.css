@@ -9,17 +9,19 @@ html { height: 100% }
 body {
   max-width: 960px;
   min-height: 100%;
-  margin: 10px auto 100px;
-  padding: 0 10px;
+  margin: 0 auto;
+  padding: 0 15px 0;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 20px;
   line-height: 35px
 }
 
+nav { padding-top: 30px }
+
 h1, h2 { font-family: FatFrank, sans-serif; font-weight: normal }
 h1 {
-  margin: 10px 0 40px;
+  margin: 10px 0 10px;
   padding: 20px 0;
   border-top: 1px dotted;
   border-bottom: 1px dotted;
@@ -27,6 +29,8 @@ h1 {
   line-height: 60px
 }
 h2 { margin: 50px 0 15px; font-size: 30px; line-height: 35px }
+
+time { font-style: italic }
 
 a { text-decoration: none }
 
@@ -66,9 +70,9 @@ pre {
   line-height: 30px;
 }
 
-.cta { display: flex; align-items: center; padding: 20px; border: 1px solid }
-.cta.twitter { background: #f5fbfe; border-color: #1da1f2 }
-.cta.wunder { background: #fffbf5; border-color: #ff9600 }
+.cta { display: flex; align-items: center; padding: 20px }
+.cta.twitter { background: #f5fbfe }
+.cta.wunder { background: #fffbf5 }
 .cta svg { flex-shrink: 0 }
 .cta path { fill: black }
 .cta span {
@@ -77,3 +81,7 @@ pre {
   word-wrap: break-word;
   word-break: break-word
 }
+
+footer { padding: 50px 0 70px }
+footer p:first-child { margin-top: 0 }
+footer p:last-child { margin-bottom: 0 }
