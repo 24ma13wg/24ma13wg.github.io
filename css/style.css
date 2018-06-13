@@ -54,6 +54,8 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
 .home li:last-child { margin-top: 20px }
 
+.home .wunder {vertical-align: bottom }
+
 pre, code {
   font-family: monospace, Monaco;
   background: #fafafa;
@@ -71,7 +73,6 @@ pre {
 }
 
 .cta { display: flex; align-items: center; padding: 20px }
-.cta.twitter { background: #f5fbfe }
 .cta.wunder { background: #fffbf5 }
 .cta svg { flex-shrink: 0 }
 .cta path { fill: black }
