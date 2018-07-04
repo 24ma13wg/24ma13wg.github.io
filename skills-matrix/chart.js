@@ -1,3 +1,6 @@
+// @todo Compensate for overflowing circles.
+// @todo Add filtering with a subtle transition.
+
 // Globals.
 const radius = 8;
 let count = 0;
