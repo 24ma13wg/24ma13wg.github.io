@@ -143,6 +143,32 @@
     "student": false,
     "teacher": false
   },
+
+  {
+    "name": "Chelsea Bloggs",
+    "category": "Dev ops",
+    "skill": "DeployBot",
+    "project": false,
+    "student": false,
+    "teacher": false
+  },
+  {
+    "name": "Chris Bloggs",
+    "category": "Dev ops",
+    "skill": "DeployBot",
+    "project": false,
+    "student": false,
+    "teacher": false
+  },
+  {
+    "name": "David Bloggs",
+    "category": "Dev ops",
+    "skill": "DeployBot",
+    "project": false,
+    "student": false,
+    "teacher": false
+  },
+
   {
     "name": "Euan Bloggs",
     "category": "Back end",
