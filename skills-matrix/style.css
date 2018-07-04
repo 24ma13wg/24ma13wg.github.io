@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'FatFrank';
+  src: url('https://24ma13wg.github.io/fonts/FatFrank/FatFrank-Regular.woff2') format('woff2'),
+  url('https://24ma13wg.github.io/fonts/FatFrank/FatFrank-Regular.woff') format('woff');
+}
+
+body {
+  font: 16px sans-serif;
+}
+
+select {
+  font-size: 16px;
+  margin: 40px 0;
+}
+
+.legend text {
+  fill: #555;
+}
+
+.legend-container {
+  fill: #fafafa;
+}
+
+circle {
+  stroke-width: 3px;
+}
+
+.basic {
+  fill: #ddd;
+}
+
+.project {
+  fill: #999;
+}
+
+.student {
+  fill: none;
+  stroke: #555;
+}
+
+.teacher {
+  fill: #555;
+  stroke: none;
+}
+
+.header { font: 24px FatFrank; }
