@@ -11,7 +11,8 @@ const columnWidth = 150;
 const spacer = 5;
 const canvas = width - columnWidth * 2;
 const maxDots = Math.floor(canvas / (dot + spacer));
-let rowOffset = 0;
+let categoryRowsOffset = 0;
+let skillRowsOffset = 0;
 
 // Add SVG container.
 const svg = d3.select("body")
@@ -117,7 +118,16 @@ d3.json("data.json").then(function(data) {
     .data(d => d.values)
     .enter()
     .append("text")
-    .attr("transform", () => "translate(0, " + ++count * rowHeight + ")")
+    .attr("transform", d => {
+
+      // Increment the global row offset to push succeeding rows down.
+      const increment = Math.ceil(d.values.length / maxDots) - 1;
+      const offset = categoryRowsOffset * dot + spacer;
+      let push = offset + ++count * rowHeight;
+      const translate = "translate(0 , " + push + ")";
+      categoryRowsOffset += increment;
+      return translate;
+    })
     .attr("class", (d, i) => i ? "empty" : "category")
     .text((d, i) => i ? "" : headerLabels.shift());
   d3.selectAll(".empty").remove();
@@ -132,10 +142,10 @@ d3.json("data.json").then(function(data) {
 
       // Increment the global row offset to push succeeding rows down.
       const increment = Math.ceil(d.values.length / maxDots) - 1;
-      const offset = rowOffset * dot + spacer;
+      const offset = skillRowsOffset * dot + spacer;
       let push = offset + ++count * rowHeight;
       const translate = "translate(" + columnWidth + ", " + push + ")";
-      rowOffset += increment;
+      skillRowsOffset += increment;
       return translate;
     });
   skills.append("text")
