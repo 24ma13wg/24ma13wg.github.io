@@ -118,16 +118,7 @@ d3.json("data.json").then(function(data) {
     .data(d => d.values)
     .enter()
     .append("text")
-    .attr("transform", d => {
-
-      // Increment the global row offset to push succeeding rows down.
-      const increment = Math.ceil(d.values.length / maxDots) - 1;
-      const offset = categoryRowsOffset * dot + spacer;
-      let push = offset + ++count * rowHeight;
-      const translate = "translate(0 , " + push + ")";
-      categoryRowsOffset += increment;
-      return translate;
-    })
+    .attr("transform", d => translate(d, 'category'))
     .attr("class", (d, i) => i ? "empty" : "category")
     .text((d, i) => i ? "" : headerLabels.shift());
   d3.selectAll(".empty").remove();
@@ -138,16 +129,7 @@ d3.json("data.json").then(function(data) {
     .data(d => d.values)
     .enter()
     .append("g")
-    .attr("transform", d => {
-
-      // Increment the global row offset to push succeeding rows down.
-      const increment = Math.ceil(d.values.length / maxDots) - 1;
-      const offset = skillRowsOffset * dot + spacer;
-      let push = offset + ++count * rowHeight;
-      const translate = "translate(" + columnWidth + ", " + push + ")";
-      skillRowsOffset += increment;
-      return translate;
-    });
+    .attr("transform", d => translate(d, 'skill'));
   skills.append("text")
     .text(d => d.key)
     .attr("class", "skill");
@@ -192,5 +174,26 @@ d3.json("data.json").then(function(data) {
     });
   people.append("title")
     .text(d => d.key);
+
+  function translate(d, column) {
+    const increment = Math.ceil(d.values.length / maxDots) - 1;
+    let offset;
+    if (column == "category") {
+      offset = categoryRowsOffset * dot + spacer;
+    }
+    else {
+      offset = skillRowsOffset * dot + spacer;
+    }
+    let push = offset + ++count * rowHeight;
+    const width = column == "category" ? 0 : columnWidth;
+    const translate = "translate(" + width + ", " + push + ")";
+    if (column == "category") {
+      categoryRowsOffset += increment;
+    }
+    else {
+      skillRowsOffset += increment;
+    }
+    return translate;
+  }
 
 });
