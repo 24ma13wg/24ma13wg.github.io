@@ -51,8 +51,8 @@ project.append("circle")
   .attr("cy", -25)
   .attr("class", "project");
 project.append("text")
-  .attr("x", 0)
-  .text("Project capable");
+  .attr("x", 11)
+  .text("Project skills");
 
 // Add student key.
 const student = legend.append("g")
