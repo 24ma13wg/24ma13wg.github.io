@@ -1,17 +1,23 @@
-// @todo Compensate for overflowing circles.
 // @todo Add filtering with a subtle transition.
 
 // Globals.
-const radius = 8;
+const width = 960;
+const height = 960;
+const dot = 16;
+const halfDot = dot / 2;
 let count = 0;
-const column = 150;
-const kerning = 5;
+const rowHeight = dot * 2;
+const columnWidth = 150;
+const spacer = 5;
+const canvas = width - columnWidth * 2;
+const maxDots = Math.floor(canvas / (dot + spacer));
+let rowOffset = 0;
 
 // Add SVG container.
 const svg = d3.select("body")
   .append("svg")
-  .attr("width", 960)
-  .attr("height", 480);
+  .attr("width", width)
+  .attr("height", height);
 
 // Add legend
 const legend = svg.append("g")
@@ -20,14 +26,14 @@ legend.append("rect")
   .attr("x", 0)
   .attr("y", 0)
   .attr("width", 478)
-  .attr("height", 80)
+  .attr("height", 69)
   .attr("class", "legend-container");
 
 // Add basic skills key.
 const basic = legend.append("g")
   .attr("transform", "translate(0, 50)");
 basic.append("circle")
-  .attr("r", radius)
+  .attr("r", halfDot)
   .attr("cx", 56)
   .attr("cy", -25)
   .attr("class", "basic");
@@ -39,7 +45,7 @@ basic.append("text")
 const project = legend.append("g")
   .attr("transform", "translate(120, 50)");
 project.append("circle")
-  .attr("r", radius)
+  .attr("r", halfDot)
   .attr("cx", 56)
   .attr("cy", -25)
   .attr("class", "project");
@@ -51,7 +57,7 @@ project.append("text")
 const student = legend.append("g")
   .attr("transform", "translate(240, 50)");
 student.append("circle")
-  .attr("r", radius)
+  .attr("r", halfDot)
   .attr("cx", 56)
   .attr("cy", -25)
   .attr("class", "student");
@@ -63,7 +69,7 @@ student.append("text")
 const teacher = legend.append("g")
   .attr("transform", "translate(360, 50)");
 teacher.append("circle")
-  .attr("r", radius)
+  .attr("r", halfDot)
   .attr("cx", 56)
   .attr("cy", -25)
   .attr("class", "teacher");
@@ -104,16 +110,15 @@ d3.json("data.json").then(function(data) {
     .data(nest)
     .enter()
     .append("g")
-    .attr("transform", "translate(0, 120)")
-    .attr("class", "category");
+    .attr("transform", "translate(0, 120)");
 
   // Add category headers.
   categories.selectAll(".header")
     .data(d => d.values)
     .enter()
     .append("text")
-    .attr("transform", () => "translate(0, " + ++count * 32 + ")")
-    .attr("class", (d, i) => i ? "empty" : "header")
+    .attr("transform", () => "translate(0, " + ++count * rowHeight + ")")
+    .attr("class", (d, i) => i ? "empty" : "category")
     .text((d, i) => i ? "" : headerLabels.shift());
   d3.selectAll(".empty").remove();
 
@@ -123,10 +128,19 @@ d3.json("data.json").then(function(data) {
     .data(d => d.values)
     .enter()
     .append("g")
-    .attr("transform", () => "translate(" + column + ", " + ++count * 32 + ")")
-    .attr("class", "skill");
+    .attr("transform", d => {
+
+      // Increment the global row offset to push succeeding rows down.
+      const increment = Math.ceil(d.values.length / maxDots) - 1;
+      const offset = rowOffset * dot + spacer;
+      let push = offset + ++count * rowHeight;
+      const translate = "translate(" + columnWidth + ", " + push + ")";
+      rowOffset += increment;
+      return translate;
+    });
   skills.append("text")
-    .text(d => d.key);
+    .text(d => d.key)
+    .attr("class", "skill");
 
   // Add skilled people.
   const people = skills.selectAll(".person")
@@ -135,11 +149,17 @@ d3.json("data.json").then(function(data) {
     .append("g")
     .attr("class", "person");
   people.append("circle")
-    .attr("r", radius)
+    .attr("r", halfDot)
     .attr("cx", (d, i) => {
-      return i * ((radius * 2) + kerning) + column;
+      const rowNumber = Math.ceil((i + 1) / maxDots) - 1;
+      x = (i - (maxDots * rowNumber)) * (dot + spacer) + columnWidth;
+      return x;
     })
-    .attr("cy", 0 - (radius / 2))
+    .attr("cy", (d, i) => {
+      const rowNumber = Math.ceil((i + 1) / maxDots) - 1;
+      y = rowNumber * (spacer + dot) - halfDot;
+      return y;
+    })
     .attr("fill", d => {
       let fill = light(d.values[0].category);
       if (d.values[0].project) {
@@ -159,8 +179,7 @@ d3.json("data.json").then(function(data) {
         stroke = "#555";
       }
       return stroke;
-    })
-    .attr("stroke-width", 3);
+    });
   people.append("title")
     .text(d => d.key);
 

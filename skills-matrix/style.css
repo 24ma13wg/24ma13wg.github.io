@@ -43,4 +43,10 @@ circle {
   stroke: none;
 }
 
-.header { font: 24px FatFrank; }
+.category {
+  font: 24px FatFrank;
+}
+
+.skill {
+  dominant-baseline: ideographic;
+}
