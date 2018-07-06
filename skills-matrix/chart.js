@@ -6,10 +6,10 @@ const dotPlusSpacer = dot + spacer;
 const halfDot = dot / 2;
 const columnWidth = 150;
 const rowHeight = 30;
-const canvas = width - columnWidth * 2;
-const maxDots = Math.floor(canvas / dotPlusSpacer);
+const canvasWidth = width - columnWidth * 2;
+const maxDots = Math.floor(canvasWidth / dotPlusSpacer);
 const legendHeight = 69;
-const footer =40;
+const footer = 40;
 let skillCount = 0;
 let categoryRowsOffset = 0;
 let skillRowsOffset = 0;
@@ -27,7 +27,7 @@ legend.append("rect")
   .attr("y", 0)
   .attr("width", 478)
   .attr("height", legendHeight)
-  .attr("class", "legend-container");
+  .attr("class", "legend-bg");
 
 // Add basic skills key.
 const basic = legend.append("g")
@@ -41,7 +41,7 @@ basic.append("text")
   .attr("x", 17)
   .text("Basic skills");
 
-// Add project capable key.
+// Add project skills key.
 const project = legend.append("g")
   .attr("transform", "translate(120, 50)");
 project.append("circle")
@@ -148,7 +148,7 @@ d3.json("data.json").then(function(data) {
     })
     .attr("cy", (d, i) => {
       const rowNumber = Math.ceil((i + 1) / maxDots) - 1;
-      y = rowNumber * (spacer + dot) - halfDot;
+      y = rowNumber * dotPlusSpacer - halfDot;
       return y;
     })
     .attr("fill", d => {
