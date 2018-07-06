@@ -1,24 +1,23 @@
-// @todo Add filtering with a subtle transition.
-
 // Globals.
 const width = 960;
-const height = 960;
 const dot = 16;
-const halfDot = dot / 2;
-let count = 0;
-const rowHeight = dot * 2;
-const columnWidth = 150;
 const spacer = 5;
+const dotPlusSpacer = dot + spacer;
+const halfDot = dot / 2;
+const columnWidth = 150;
+const rowHeight = 30;
 const canvas = width - columnWidth * 2;
-const maxDots = Math.floor(canvas / (dot + spacer));
+const maxDots = Math.floor(canvas / dotPlusSpacer);
+const legendHeight = 69;
+const footer =40;
+let skillCount = 0;
 let categoryRowsOffset = 0;
 let skillRowsOffset = 0;
 
 // Add SVG container.
 const svg = d3.select("body")
   .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+  .attr("width", width);
 
 // Add legend
 const legend = svg.append("g")
@@ -27,7 +26,7 @@ legend.append("rect")
   .attr("x", 0)
   .attr("y", 0)
   .attr("width", 478)
-  .attr("height", 69)
+  .attr("height", legendHeight)
   .attr("class", "legend-container");
 
 // Add basic skills key.
@@ -124,7 +123,7 @@ d3.json("data.json").then(function(data) {
   d3.selectAll(".empty").remove();
 
   // Add skill groups.
-  count = 0;
+  skillCount = 0;
   const skills = categories.selectAll(".skill")
     .data(d => d.values)
     .enter()
@@ -144,7 +143,7 @@ d3.json("data.json").then(function(data) {
     .attr("r", halfDot)
     .attr("cx", (d, i) => {
       const rowNumber = Math.ceil((i + 1) / maxDots) - 1;
-      x = (i - (maxDots * rowNumber)) * (dot + spacer) + columnWidth;
+      x = (i - (maxDots * rowNumber)) * dotPlusSpacer + columnWidth;
       return x;
     })
     .attr("cy", (d, i) => {
@@ -175,16 +174,26 @@ d3.json("data.json").then(function(data) {
   people.append("title")
     .text(d => d.key);
 
+  // Set container height.
+  svg.attr("height", () => {
+    canvasHeight = (skillCount * rowHeight) + (skillRowsOffset * dotPlusSpacer);
+    return (legendHeight + (120 - legendHeight)) + canvasHeight + footer;
+  });
+
+  // Add event listener for change event.
+  d3.selectAll("#filter").on("change", update);
+
+  // Update global offset to push down succeeding rows by correct offset.
   function translate(d, column) {
     const increment = Math.ceil(d.values.length / maxDots) - 1;
     let offset;
     if (column == "category") {
-      offset = categoryRowsOffset * dot + spacer;
+      offset = categoryRowsOffset * dotPlusSpacer;
     }
     else {
-      offset = skillRowsOffset * dot + spacer;
+      offset = skillRowsOffset * dotPlusSpacer;
     }
-    let push = offset + ++count * rowHeight;
+    let push = offset + ++skillCount * rowHeight;
     const width = column == "category" ? 0 : columnWidth;
     const translate = "translate(" + width + ", " + push + ")";
     if (column == "category") {
@@ -194,6 +203,27 @@ d3.json("data.json").then(function(data) {
       skillRowsOffset += increment;
     }
     return translate;
+  }
+
+  // Filter people by project workers, students, or teachers.
+  function update() {
+    people.select("circle")
+      .transition()
+      .duration(300)
+      .attr("r", d => {
+        if (this.value == "project") {
+          return d.values[0].project ? halfDot : 0;
+        }
+        else if (this.value == "student") {
+          return d.values[0].student ? halfDot : 0;
+        }
+        else if (this.value == "teacher") {
+          return d.values[0].teacher ? halfDot : 0;
+        }
+        else {
+          return halfDot;
+        }
+      });
   }
 
 });

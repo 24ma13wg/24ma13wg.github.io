@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'FatFrank';
-  src: url('https://24ma13wg.github.io/fonts/FatFrank/FatFrank-Regular.woff2') format('woff2'),
-  url('https://24ma13wg.github.io/fonts/FatFrank/FatFrank-Regular.woff') format('woff');
-}
-
-body {
+form, text {
   font: 16px sans-serif;
 }
 

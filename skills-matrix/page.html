@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skills matrix</title>
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link href="../css/style.css" media="all" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <link href="style.css" media="all" rel="stylesheet" />
 </head>
 <body>
+  <nav>
+    <small><a href="/">Home</a></small>
+  </nav>
+  <h1>Skills matrix</h1>
+  <small>
+    <time datetime="2018-07-06 00:00">July, 2018</time>
+  </small>
   <form>
-    <label for="filter-select">Filters: </label>
-    <select id="filter-select" name="filters">
+    <label for="filter">Filter by: </label>
+    <select id="filter">
       <option value="all" selected>All</option>
       <option value="project">Project workers</option>
-      <option value="students">Students</option>
-      <option value="teachers">Teachers</option>
+      <option value="student">Students</option>
+      <option value="teacher">Teachers</option>
     </select>
   </form>
   <script src="chart.js"></script>
+  <p>The above prototype is based on a set of assumed user stories, outlined <a href="https://github.com/24ma13wg/24ma13wg.github.io/tree/master/skills-matrix" target="_blank">here</a>.</p>
+  <p>The data points are generated from a simple, but hopefully versatile, data object:</p>
+  <pre>
+{
+  "name": "Roxy Bloggs",
+  "category": "Back end",
+  "skill": "Drupal",
+  "project": true,
+  "student": false,
+  "teacher": false
+}
+  </pre>
+  <p>I will revisit this again, when I have some more time. Comments gratefully received.</p>
+  <footer></footer>
 </body>
 </html>
