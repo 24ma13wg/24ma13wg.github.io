@@ -658,7 +658,7 @@
   {
     "name": "Jordan Bloggs",
     "category": "Dev ops",
-    "skill": "Vagarnt",
+    "skill": "Jenkins",
     "project": false,
     "student": false,
     "teacher": false
@@ -682,7 +682,7 @@
   {
     "name": "Josiah Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -690,7 +690,7 @@
   {
     "name": "Julian Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -698,7 +698,7 @@
   {
     "name": "Kaylee Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": true,
     "teacher": true
@@ -706,7 +706,7 @@
   {
     "name": "Kennedy Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -714,7 +714,7 @@
   {
     "name": "Kinsley Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -722,7 +722,7 @@
   {
     "name": "Landon Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -730,7 +730,7 @@
   {
     "name": "Layla Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -738,7 +738,7 @@
   {
     "name": "Leah Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -746,7 +746,7 @@
   {
     "name": "Leo Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -754,7 +754,7 @@
   {
     "name": "Levi Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": true,
     "teacher": false
@@ -762,7 +762,7 @@
   {
     "name": "Liam Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -770,7 +770,7 @@
   {
     "name": "Lila Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -778,7 +778,7 @@
   {
     "name": "Liliana Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -786,7 +786,7 @@
   {
     "name": "Lillian Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -794,7 +794,7 @@
   {
     "name": "Lily Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": false,
     "teacher": false
@@ -802,7 +802,7 @@
   {
     "name": "Lincoln Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -810,7 +810,7 @@
   {
     "name": "Logan Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": true,
     "student": false,
     "teacher": false
@@ -818,7 +818,7 @@
   {
     "name": "Luca Bloggs",
     "category": "Front end",
-    "skill": "React",
+    "skill": "React.js",
     "project": false,
     "student": true,
     "teacher": false
