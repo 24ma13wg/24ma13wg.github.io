@@ -82,17 +82,11 @@ d3.json("data.json").then(function(data) {
 
   // Nest data by category and by skill, and order everything alphabetcally.
   const nest = d3.nest()
-    .key(function(d){
-      return d.category;
-    })
+    .key(d => d.category)
     .sortKeys(d3.ascending)
-    .key(function(d){
-      return d.skill;
-    })
+    .key(d => d.skill)
     .sortKeys(d3.ascending)
-    .key(function(d){
-      return d.name;
-    })
+    .key(d => d.name)
     .sortKeys(d3.ascending)
     .entries(data);
 
