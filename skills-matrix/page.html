@@ -32,7 +32,7 @@
   <p>Hover over the data points to see who has the skill. The key indicates how developed/developing their skill level is. They may also be filtered. The data points are generated from a simple, but hopefully versatile, data object:</p>
 <pre>
 {
-  "name": "Roxy Bloggs",
+  "name": "Werner Wunder",
   "category": "Back end",
   "skill": "Drupal",
   "project": true,
@@ -40,7 +40,40 @@
   "teacher": false
 }
 </pre>
-  <p>It's a work in progress.</p>
+  <p>The mappings for an Elasticsearch index might look something like this:</p>
+  <pre>
+$mappings = [ 
+  'index' => 'skills', 
+  'type' => 'default', 
+  'body' => [ 
+    'properties' => [ 
+      'uid' => [ 
+        'type' => 'integer', 
+      ],
+      'category' => [ 
+        'type' => 'keyword', 
+      ],
+      'skill' => [
+        'type' => 'keyword',
+      ],
+      'project' => [ 
+        'type' => 'boolean',
+      ],
+      'student' => [ 
+        'type' => 'boolean',
+      ],
+      'teacher' => [ 
+        'type' => 'boolean', 
+      ],
+     ],
+  ],
+];
+</pre>
+  <p>Other issues</p>
+  <ul>
+    <li>Skill quotas</li>
+    <li>Data privacy</li>
+  </ul>
   <footer></footer>
 </body>
 </html>
