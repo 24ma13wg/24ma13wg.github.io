@@ -38,7 +38,8 @@ circle {
 }
 
 .category {
-  font: 24px FatFrank;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .skill {

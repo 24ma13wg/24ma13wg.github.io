@@ -19,7 +19,7 @@ body {
 
 nav { padding-top: 30px }
 
-h1, h2 { font-family: FatFrank, sans-serif; font-weight: normal }
+h1, h2, h3 { font-family: FatFrank, sans-serif; font-weight: normal }
 h1 {
   margin: 10px 0 10px;
   padding: 20px 0;
@@ -29,6 +29,7 @@ h1 {
   line-height: 60px
 }
 h2 { margin: 50px 0 15px; font-size: 30px; line-height: 35px }
+h3 { margin: 45px 0 10px; font-size: 25px; line-height: 30px }
 
 time { font-style: italic }
 
