@@ -15,10 +15,6 @@ select {
   fill: #fafafa;
 }
 
-circle {
-  stroke-width: 3px;
-}
-
 .basic {
   fill: #ddd;
 }
