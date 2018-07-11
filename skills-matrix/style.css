@@ -41,3 +41,8 @@ select {
 .skill {
   dominant-baseline: ideographic;
 }
+
+.person {
+  fill: #555;
+  font-weight: bold;
+}

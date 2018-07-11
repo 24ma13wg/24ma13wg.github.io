@@ -225,7 +225,6 @@ d3.json("data.json").then(function (data) {
     }
   }
 
-  // @todo: Add name
   // @todo: Add dynamic height
 
   // Personal profile chart.
@@ -235,11 +234,18 @@ d3.json("data.json").then(function (data) {
     const svg = d3.select(".personal")
       .append("svg")
       .attr("width", width)
-      .attr("height", 500);
+      .attr("height", 510 + footer);
 
+    const person = "Claire Bloggs";
     const profile = data.filter(d => {
-      return d.name == "Claire Bloggs";
+      return d.name == person;
     });
+
+    // Add person label.
+    svg.append("text")
+      .attr("y", textHeight)
+      .text(person)
+      .attr("class", "person");
 
     // Nest data by category and by skill, and order everything alphabetcally.
     const nest = d3.nest()
@@ -253,7 +259,7 @@ d3.json("data.json").then(function (data) {
       .enter()
       .append("g")
       .attr("transform", (d, i) => {
-        return "translate(" + columnWidth * i + ", " + 0 + ")";
+        return "translate(" + columnWidth * i + ", " + rowHeight + ")";
       });
     categories.append("g")
       .attr("transform", "translate(0, " + headerHeight + ")")
@@ -283,7 +289,6 @@ d3.json("data.json").then(function (data) {
       .attr("cx" , halfDot + strokeWidth)
       .attr("fill", "lightgrey")
       .attr("stroke", "lightgrey")
-
       .attr("fill", d => {
         let fill = light(d.category);
         if (d.project) {
@@ -304,7 +309,6 @@ d3.json("data.json").then(function (data) {
         }
         return stroke;
       })
-
       .attr("stroke-width", strokeWidth);
     skills.append("text")
       .attr("y", halfDot + textHeight)
