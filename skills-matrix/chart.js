@@ -320,3 +320,59 @@ d3.json("data.json").then(function (data) {
   personal();
 
 });
+
+// Map elastcsearch response into required format.
+const client = new elasticsearch.Client();
+client.search({
+  index: 'commits',
+  type: 'commits',
+  body: {
+    "size": 0,
+    "query": {
+      "wildcard": {
+        "author.email.keyword": "*wunder*"
+      }
+    },
+    "aggs": {
+      "skills": {
+        "terms": {
+          "size": 52074,
+          "field": "tags.keyword",
+          "order": {
+            "_term": "asc"
+          }
+        },
+        "aggs": {
+          "people": {
+            "terms": {
+              "size": 52074,
+              "field": "author.name.keyword",
+              "order": {
+                "_term": "asc"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}).then(function(response) {
+  const buckets = response.aggregations.skills.buckets;
+
+  console.log(buckets);
+  // map into json objects and save file
+
+  // {
+  //   "name": NAME,
+  //   "category": "All",
+  //   "skill": SKILL,
+  //   "project": false,
+  //   "student": false,
+  //   "teacher": false
+  // }
+
+  // pass into code above
+
+}, function(error) {
+  console.trace(error.message);
+});
