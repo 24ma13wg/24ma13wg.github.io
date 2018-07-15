@@ -321,6 +321,10 @@ d3.json("data.json").then(function (data) {
 
 });
 
+/* elasticdump \
+--input=dump.json \
+--output=http://localhost:9200 */
+
 // Map elastcsearch response into required format.
 const client = new elasticsearch.Client();
 client.search({
@@ -357,21 +361,49 @@ client.search({
     }
   }
 }).then(function(response) {
+
   const buckets = response.aggregations.skills.buckets;
 
-  console.log(buckets);
-  // map into json objects and save file
+  // Generate array of distinct skills.
+  const distinctSkills = buckets.map(b => {
+    return b.key.charAt(0).toUpperCase() + b.key.slice(1).split('_').join(' ');
+  });
 
-  // {
-  //   "name": NAME,
-  //   "category": "All",
-  //   "skill": SKILL,
-  //   "project": false,
-  //   "student": false,
-  //   "teacher": false
-  // }
+  // Generate array of distinct people.
+  const distinctPeople = [];
+  buckets.forEach(s => {
+    s.people.buckets.forEach(p =>{
+      if (!distinctPeople.includes(p.key)) {
+        distinctPeople.push(p.key);
+      }
+    })
+  });
 
-  // pass into code above
+  // Create new reformatted array of arrays.
+  const peopleSkills = buckets.map(s => {
+    const people = s.people.buckets.map(p => {
+      return {
+        "name": p.key,
+        "skill": "",
+        "commits": p.doc_count,
+      };
+    });
+
+    // Renew array with skill property assigned.
+    people.map(o => {
+
+      // Assign capitalised and spaced string.
+      o.skill = s.key.charAt(0).toUpperCase() + s.key.slice(1).split('_').join(' ');
+      return o;
+    });
+    return people;
+  });
+
+  // Merge into single array.
+  const data = [].concat.apply([], peopleSkills);
+
+  // Generate table.
+  // ...
 
 }, function(error) {
   console.trace(error.message);
