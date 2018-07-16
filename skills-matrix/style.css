@@ -48,7 +48,6 @@ select {
 }
 
 table {
-  order-collapse: collapse;
   border-spacing: 5px;
 }
 
@@ -75,4 +74,6 @@ tbody th div {
 
 td {
   height: 30px;
+  text-align: center;
+  font-size: 12px;
 }

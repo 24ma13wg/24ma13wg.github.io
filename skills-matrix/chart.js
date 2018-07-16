@@ -1,24 +1,24 @@
-// Globals.
-const width = 960;
-const legendHeight = 69;
-const dot = 16;
-const halfDot = dot / 2;
-const columnWidth = 150;
-const plotWidth = width - columnWidth * 2;
-const spacer = 5;
-const dotPlusSpacer = dot + spacer;
-const maxDots = Math.floor(plotWidth / dotPlusSpacer);
-const strokeWidth = 3;
-const rowHeight = 30;
-const footer = 40;
-const textHeight = 17;
-const headerHeight = 20;
-let skillCount = 0;
-let skillRowsOffset = 0;
-let categoryRowsOffset = 0;
-
 // Load data.
 d3.json("data.json").then(function (data) {
+
+  // Globals.
+  const width = 960;
+  const legendHeight = 69;
+  const dot = 16;
+  const halfDot = dot / 2;
+  const columnWidth = 150;
+  const plotWidth = width - columnWidth * 2;
+  const spacer = 5;
+  const dotPlusSpacer = dot + spacer;
+  const maxDots = Math.floor(plotWidth / dotPlusSpacer);
+  const strokeWidth = 3;
+  const rowHeight = 30;
+  const footer = 40;
+  const textHeight = 17;
+  const headerHeight = 20;
+  let skillCount = 0;
+  let skillRowsOffset = 0;
+  let categoryRowsOffset = 0;
 
   // All profiles chart.
   function all() {
@@ -185,16 +185,16 @@ d3.json("data.json").then(function (data) {
     function translate(d, column) {
       const increment = Math.ceil(d.values.length / maxDots) - 1;
       let offset;
-      if (column == "category") {
+      if (column === "category") {
         offset = categoryRowsOffset * dotPlusSpacer;
       }
       else {
         offset = skillRowsOffset * dotPlusSpacer;
       }
       let push = offset + ++skillCount * rowHeight;
-      const width = column == "category" ? 0 : columnWidth;
+      const width = column === "category" ? 0 : columnWidth;
       const translate = "translate(" + width + ", " + push + ")";
-      if (column == "category") {
+      if (column === "category") {
         categoryRowsOffset += increment;
       }
       else {
@@ -209,13 +209,13 @@ d3.json("data.json").then(function (data) {
         .transition()
         .duration(300)
         .attr("r", d => {
-          if (this.value == "project") {
+          if (this.value === "project") {
             return d.values[0].project ? halfDot : 0;
           }
-          else if (this.value == "student") {
+          else if (this.value === "student") {
             return d.values[0].student ? halfDot : 0;
           }
-          else if (this.value == "teacher") {
+          else if (this.value === "teacher") {
             return d.values[0].teacher ? halfDot : 0;
           }
           else {
@@ -225,8 +225,6 @@ d3.json("data.json").then(function (data) {
     }
   }
 
-  // @todo: Add dynamic height
-
   // Personal profile chart.
   function personal() {
 
@@ -234,11 +232,13 @@ d3.json("data.json").then(function (data) {
     const svg = d3.select(".personal")
       .append("svg")
       .attr("width", width)
+
+      // @todo: Add dynamic height
       .attr("height", 510 + footer);
 
     const person = "Claire Bloggs";
     const profile = data.filter(d => {
-      return d.name == person;
+      return d.name === person;
     });
 
     // Add person label.
@@ -326,7 +326,7 @@ d3.json("data.json").then(function (data) {
 --output=http://localhost:9200 */
 
 // Map elastcsearch response into required format.
-const client = new elasticsearch.Client();
+/* const client = new elasticsearch.Client();
 client.search({
   index: 'commits',
   type: 'commits',
@@ -360,16 +360,18 @@ client.search({
       }
     }
   }
-}).then(function(response) {
+}).then(function(response) { */
 
+// Load data.
+d3.json("response.json").then(function (response) {
   const buckets = response.aggregations.skills.buckets;
 
   // Generate array of distinct people.
   const distinctPeople = [];
-  buckets.forEach(s => {
-    s.people.buckets.forEach(p =>{
-      if (!distinctPeople.includes(p.key)) {
-        distinctPeople.push(p.key);
+  buckets.forEach(e => {
+    e.people.buckets.forEach(e => {
+      if (!distinctPeople.includes(e.key)) {
+        distinctPeople.push(e.key);
       }
     })
   });
@@ -377,40 +379,27 @@ client.search({
   // Construct table head row.
   const tableHeadRow = [""].concat(distinctPeople);
 
-  // Generate array of skill objects possessing name and commits properties.
-  const tableBodyRows = buckets.map(b => {
+  // Generate array of table body rows.
+  const tableBodyRows = buckets.map(v => {
 
-    const skilledPeople = b.people.buckets.map(b => {
-      return {name: b.key, commits: b.doc_count};
+    // Generate array of skilled people objects.
+    const skilledPeople = v.people.buckets.map(v => {
+      return {name: v.key, commits: v.doc_count};
     });
 
+    // Construct row.
     tableBodyRow = [];
-    const skill = b.key.charAt(0).toUpperCase() + b.key.slice(1).split('_').join(' ');
+    const skill = v.key.charAt(0).toUpperCase() + v.key.slice(1).split('_').join(' ');
     tableBodyRow.push(skill);
     distinctPeople.forEach(v => {
-
-      const person = skilledPeople.filter(e => e.name == v);
+      const person = skilledPeople.filter(e => e.name === v);
       const commits = person.length > 0 ? person[0].commits : 0;
       tableBodyRow.push({name: v, commits: commits})
     });
     return tableBodyRow;
   });
 
-  // @todo add scale with chromatic scheme based on min max commits
-  // @todo tidy up
-  // @todo == / ===
-
-  // console.log(tableBodyRows);
-  // const allCommits = tableBodyRows.map(v => {
-  //   v.map(v => {
-  //     if (v.hasOwnProperty("commits")) {
-  //       console.log(v.commits);
-  //     }
-  //   })
-  // });
-  // console.log(allCommits);
-
-  // Generate array of all commit toals
+  // Generate array of all commit totals.
   const allCommitTotals = [];
   tableBodyRows.forEach(e => {
     e.forEach(e => {
@@ -420,8 +409,8 @@ client.search({
     })
   });
 
-  // Define color scheme and scale.
-  const scheme = d3.scaleSequential(d3.interpolateGreens);
+  // Define colour scheme and scale.
+  const scheme = d3.scaleSequential(d3.interpolateOrRd);
   const scale = d3.scaleLinear()
     .domain([d3.min(allCommitTotals), d3.max(allCommitTotals)])
     .range([.05, 1]);
@@ -429,7 +418,6 @@ client.search({
   // Generate table.
   const table = d3.select(".robot")
     .append("table");
-
   table.append("thead")
     .append("tr")
     .selectAll("th")
@@ -438,13 +426,11 @@ client.search({
     .append("th")
     .append("div")
     .text(d => d);
-
   const tr = table.append("tbody")
     .selectAll("tr")
     .data(tableBodyRows)
     .enter()
     .append("tr");
-
   const td = tr.selectAll("td")
     .data(d => d)
     .enter()
@@ -452,12 +438,17 @@ client.search({
       return i ? document.createElement('td') : document.createElement('th');
     })
     .style("background-color", (d, i) => {
-
       return (i && d.commits) ? scheme(scale(d.commits)) : "transparent";
     })
+    .style("color", d => {
+      return d.commits > (d3.max(allCommitTotals) * .5) ? "white" : "black";
+    })
     .append("div")
-    .text((d ,i) => { return i ? d.commits : d; });
-
-}, function(error) {
-  console.trace(error.message);
+    .text((d, i) => {
+      return i ? d.commits : d;
+    });
 });
+
+/* } , function(error) {
+  console.trace(error.message);
+}); */
