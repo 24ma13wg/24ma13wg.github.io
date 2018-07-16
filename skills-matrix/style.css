@@ -46,3 +46,34 @@ select {
   fill: #555;
   font-weight: bold;
 }
+
+table {
+  order-collapse: collapse;
+  border-spacing: 5px;
+}
+
+thead th {
+  height: 140px;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+thead th div {
+  transform: translate(0px, 54px) rotate(-90deg);
+  width: 30px;
+}
+
+tbody th {
+  text-align: left;
+  font-weight: normal;
+}
+
+tbody th div {
+  width: 192px;
+  text-align: left;
+}
+
+td {
+  height: 30px;
+  background-color: green;
+}

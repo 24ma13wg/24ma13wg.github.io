@@ -364,11 +364,6 @@ client.search({
 
   const buckets = response.aggregations.skills.buckets;
 
-  // Generate array of distinct skills.
-  // const distinctSkills = buckets.map(b => {
-  //   return b.key.charAt(0).toUpperCase() + b.key.slice(1).split('_').join(' ');
-  // });
-
   // Generate array of distinct people.
   const distinctPeople = [];
   buckets.forEach(s => {
@@ -382,62 +377,26 @@ client.search({
   // Construct table head row.
   const tableHeadRow = [""].concat(distinctPeople);
 
-  // Create new reformatted array of arrays.
-  // const peopleSkills = buckets.map(s => {
-  //   const people = s.people.buckets.map(p => {
-  //     return {
-  //       "name": p.key,
-  //       "skill": "",
-  //       "commits": p.doc_count,
-  //     };
-  //   });
-
-    // Renew array with skill property assigned.
-  //   people.map(o => {
-  //
-  //     // Assign capitalised and spaced string.
-  //     o.skill = s.key.charAt(0).toUpperCase() + s.key.slice(1).split('_').join(' ');
-  //     return o;
-  //   });
-  //   return people;
-  // });
-
-  // Merge into single array.
-  // const data = [].concat.apply([], peopleSkills);
-
-  // how to make the whole matrix?
-  // https://github.com/d3/d3-selection/blob/master/README.md#selection_data
-
   // Generate array of skill objects possessing name and commits properties.
   const tableBodyRows = buckets.map(b => {
 
     const skilledPeople = b.people.buckets.map(b =>{
       return {name: b.key, commits: b.doc_count};
-      //return b.key;
     });
-    //console.log(skilledPeople);
 
     tableBodyRow = [];
     const skill = b.key.charAt(0).toUpperCase() + b.key.slice(1).split('_').join(' ');
     tableBodyRow.push(skill);
-    //for (let i = 0; i < distinctPeople.length; i++) {
-      //tableBodyRow.push({name: distinctPeople[i], commits: 0});
-    //}
     distinctPeople.forEach(v => {
 
       const person = skilledPeople.filter(e => e.name == v);
       const commits = person.length > 0 ? person[0].commits : 0;
-      //console.log(test2);
-      //if (skilledPeople.some(e => e.name == v)) {
-        // find v in skilledPeople and get skilledPeople.commits
-        //test = skilledPeople.filter(e => e.name == v);
-        //commits = 999;
-      //}
       tableBodyRow.push({name: v, commits: commits})
     });
     return tableBodyRow;
   });
-  console.log(tableBodyRows);
+
+  // @todo add scale with chromatic scheme based on min max commits
 
   // Generate table.
   const table = d3.select(".robot")
@@ -449,6 +408,7 @@ client.search({
     .data(tableHeadRow)
     .enter()
     .append("th")
+    .append("div")
     .text(d => d);
 
   const tr = table.append("tbody")
@@ -460,9 +420,11 @@ client.search({
   const td = tr.selectAll("td")
     .data(d => d)
     .enter()
-    .append("td")
+    .append((d, i) => {
+      return i ? document.createElement('td') : document.createElement('th');
+    })
+    .append("div")
     .text((d ,i) => { return i ? d.commits : d; });
-
 
 }, function(error) {
   console.trace(error.message);
