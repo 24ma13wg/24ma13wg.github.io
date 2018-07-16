@@ -379,12 +379,8 @@ client.search({
     })
   });
 
-  console.log(distinctPeople);
-
   // Construct table head row.
   const tableHeadRow = [""].concat(distinctPeople);
-
-  console.log(tableHeadRow);
 
   // Create new reformatted array of arrays.
   // const peopleSkills = buckets.map(s => {
@@ -455,7 +451,18 @@ client.search({
     .append("th")
     .text(d => d);
 
-  const tbody = table.append("tbody");
+  const tr = table.append("tbody")
+    .selectAll("tr")
+    .data(tableBodyRows)
+    .enter()
+    .append("tr");
+
+  const td = tr.selectAll("td")
+    .data(d => d)
+    .enter()
+    .append("td")
+    .text((d ,i) => { return i ? d.commits : d; });
+
 
 }, function(error) {
   console.trace(error.message);
