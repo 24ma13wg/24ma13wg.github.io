@@ -235,7 +235,6 @@ d3.json("data.json").then(function (data) {
 
       // @todo: Add dynamic height
       .attr("height", 510 + footer);
-
     const person = "Claire Bloggs";
     const profile = data.filter(d => {
       return d.name === person;
@@ -318,7 +317,6 @@ d3.json("data.json").then(function (data) {
   // Render charts.
   all();
   personal();
-
 });
 
 /* elasticdump \
@@ -375,6 +373,9 @@ d3.json("response.json").then(function (response) {
       }
     })
   });
+
+  // Order alphabetically.
+ distinctPeople.sort();
 
   // Construct table head row.
   const tableHeadRow = [""].concat(distinctPeople);
