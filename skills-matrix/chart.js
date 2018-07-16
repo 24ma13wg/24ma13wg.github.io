@@ -380,7 +380,7 @@ client.search({
   // Generate array of skill objects possessing name and commits properties.
   const tableBodyRows = buckets.map(b => {
 
-    const skilledPeople = b.people.buckets.map(b =>{
+    const skilledPeople = b.people.buckets.map(b => {
       return {name: b.key, commits: b.doc_count};
     });
 
@@ -397,6 +397,34 @@ client.search({
   });
 
   // @todo add scale with chromatic scheme based on min max commits
+  // @todo tidy up
+  // @todo == / ===
+
+  // console.log(tableBodyRows);
+  // const allCommits = tableBodyRows.map(v => {
+  //   v.map(v => {
+  //     if (v.hasOwnProperty("commits")) {
+  //       console.log(v.commits);
+  //     }
+  //   })
+  // });
+  // console.log(allCommits);
+
+  // Generate array of all commit toals
+  const allCommitTotals = [];
+  tableBodyRows.forEach(e => {
+    e.forEach(e => {
+      if (typeof e === 'object') {
+        allCommitTotals.push(e.commits);
+      }
+    })
+  });
+
+  // Define color scheme and scale.
+  const scheme = d3.scaleSequential(d3.interpolateGreens);
+  const scale = d3.scaleLinear()
+    .domain([d3.min(allCommitTotals), d3.max(allCommitTotals)])
+    .range([.05, 1]);
 
   // Generate table.
   const table = d3.select(".robot")
@@ -422,6 +450,10 @@ client.search({
     .enter()
     .append((d, i) => {
       return i ? document.createElement('td') : document.createElement('th');
+    })
+    .style("background-color", (d, i) => {
+
+      return (i && d.commits) ? scheme(scale(d.commits)) : "transparent";
     })
     .append("div")
     .text((d ,i) => { return i ? d.commits : d; });
