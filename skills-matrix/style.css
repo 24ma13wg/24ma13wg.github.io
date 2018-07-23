@@ -47,6 +47,24 @@ select {
   font-weight: bold;
 }
 
+.wrapper {
+  position: relative;
+  left: 0;
+  right: 202px;
+}
+
+.robot {
+  overflow-x: scroll;
+  margin-left: 202px;
+}
+
+th:first-child {
+  position: absolute;
+  width: 202px;
+  left:0;
+  font-style: italic;
+}
+
 table {
   border-spacing: 5px;
 }
@@ -76,4 +94,9 @@ td {
   height: 30px;
   text-align: center;
   font-size: 12px;
+}
+
+.scroll-right {
+  display: block;
+  text-align: center;
 }
