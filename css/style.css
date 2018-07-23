@@ -37,13 +37,14 @@ a { text-decoration: none }
 
 figcaption { margin: 16px 0; font-style: italic; text-align: center }
 
-.home {
+.centre {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 0;
   margin-bottom: 0
 }
+
 .home h2 { margin: 0; font-size: 35px }
 .home h1 {
   margin: 30px 0 0;
@@ -55,7 +56,7 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
 .home li:last-child { margin-top: 20px }
 
-.home .wunder {vertical-align: bottom }
+.root {vertical-align: bottom }
 
 pre, code {
   font-family: monospace, Monaco;
