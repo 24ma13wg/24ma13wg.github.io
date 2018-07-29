@@ -20,7 +20,26 @@
   <small>
     <time datetime="2018-07-06 00:00">July, 2018</time>
   </small>
-  <h2>Self assessed</h2>
+  <ul>
+    <li><a href="#user-stories-1">User stories 1</a></li>
+    <li><a href="#self-assessed">Self assessed</a></li>
+    <li><a href="#notes-1">Notes 1</a></li>
+    <li><a href="#robot-assessed">Robot assessed</a></li>
+    <li><a href="#notes-2">Notes 2</a></li>
+  </ul>
+  <h2 id="user-stories-1">User stories 1</h2>
+  <p>The self assessed prototype, immediately below, is based on a set of assumed user stories:</p>
+  <ul>
+    <li>As a resourcer, I want to know what skills we are short of so that I can recruit new people who have those skills</li>
+    <li>As a resourcer, I want to know what skills we are short of, and who wants to increase a certain skill, so that I can organise appropriate training</li>
+    <li>As a resourcer I wan to know who is available to coach/teach others a certain skill</li>
+    <li>As a delivery manager, I want to know who has a skill, at a level that can deliver a project, so that I can select the right people for the project</li>
+    <li>As a resourcer/delivery manager, I want to know who wants to increase a certain skill, so that they can be paired with more skilled people on projects</li>
+    <li>As a developer, I want to know what skills are strategically important to the company, and where there are deficiencies, so that I may develop my skills in areas where there is a shortage</li>
+    <li>As a developer, I want to know who else is learning a skill so that I might get in touch and share knowledge.</li>
+  </ul>
+
+  <h2 id="self-assessed">Self assessed</h2>
   <form>
     <label for="filter">Filter by: </label>
     <select id="filter">
@@ -31,16 +50,6 @@
     </select>
   </form>
   <div class="all"></div>
-  <p>The above prototype is based on a set of assumed user stories:</p>
-  <ul>
-    <li>As a resourcer, I want to know what skills we are short of so that I can recruit new people who have those skills</li>
-    <li>As a resourcer, I want to know what skills we are short of, and who wants to increase a certain skill, so that I can organise appropriate training</li>
-    <li>As a resourcer I wan to know who is available to coach/teach others a certain skill</li>
-    <li>As a delivery manager, I want to know who has a skill, at a level that can deliver a project, so that I can select the right people for the project</li>
-    <li>As a resourcer/delivery manager, I want to know who wants to increase a certain skill, so that they can be paired with more skilled people on projects</li>
-    <li>As a developer, I want to know what skills are strategically important to the company, and where there are deficiencies, so that I may develop my skills in areas where there is a shortage</li>
-    <li>As a developer, I want to know who else is learning a skill so that I might get in touch and share knowledge.</li>
-  </ul>
   <p>Hover over the data points to see who has the skill. The legend indicates how developed/developing their skill level is. They may also be filtered with the select list. The data points are generated from a simple, but hopefully versatile, data object:</p>
 <pre>
 {
@@ -60,7 +69,7 @@
     <li>Do you feel confident to teach/coach skill x to others: yes/no</li>
   </ul>
   <p>For example, if you feel confident that you could be part of a team that delivers a client project built mainly with Vue.js, then you should register Vue.js as a project skill. If you are not yet at this level, but can build applications with Vue.js, you should register it as a skill. If you are currently studying Vue.js, mark yourself as a student. If you feel you can, and want to,  teach Vue.js to others, then mark yourself as a teacher.</p>
-  <h3>Some considerations...</h3>
+  <h2 id="notes-1">Notes 1</h2>
   <ul>
     <li>How are we define a skill? Just <em>code</em> skills?</li>
     <li>How granular can/should we get with identifying skills? For example: <em>Back end > PHP > Drupal > Drupal 8 > Block plugins</em>?</li>
@@ -69,15 +78,15 @@
     <li>Add more views, like a personal view? For example:</li>
   </ul>
   <div class="personal"></div>
-  <h2>Robot assessed</h2>
+  <h2 id="robot-assessed">Robot assessed</h2>
   <p>This second prototype is more matrix-like. It uses commit data (number of commits), scraped from GitHub by Florian's robot, and indexed by Elasticsearch.</p>
   <div class="wrapper"><div class="robot"></div></div>
   <small class="scroll-right">Please scroll right &rArr;</small>
   <small><sup>*</sup> Only includes commits by GitHub accounts using an email address that contains the sub-string <em>wunder</em>.</small>
-  <h3>Some considerations...</h3>
+  <h2 id="notes-2">Notes 2</h2>
   <ul>
     <li>There is a lot of data to be displayed; both skills and developers need to be filterable, maybe by back-end/dev ops/front-end or Estonia/Finland/Germany/Latvia/UK – whatever is useful. More tags would probably fix this.</li>
-    <li>It relies on a skill being identified from the code of a commit. There could be benefit in inviting pull requests for <em>skill tag creators</em> from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
+    <li>It relies on a skill being identified from the code of a commit. There could be benefit in inviting pull requests for <em>skill tagging functions</em> from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
     <li>If someone changes/uses different GitHub names, then they will appear multiple times. Could we add a <code>usernames.txt</code> file to Elasticsearch, so that it knows to use only a single username for indexing?</li>
 <pre>
 [
@@ -91,8 +100,8 @@
   }
 ]
 </pre>
-    <li>Developers who have been with the company longer – and made more commits – will appear more skilled, which may, or may not, be fair. We might display data from only the past one year, by default?</li>
-    <li>How do we signal skills that cannot be identified by project commits? Could we have a <code>missing.txt</code> file, which will be scraped by the robot, and which tells the robot about other skills. This could be represented by a different colour in the table (if no commits are found).</li>
+    <li>Developers who have been with the company longer – and have made more commits – will appear more skilled, which may, or may not, be fair. We might display data from only the past one year, by default?</li>
+    <li>How do we signal skills that cannot be identified by project commits? Could we have an <code>other-skills.txt</code> file, which will be scraped by the robot, and which tells the robot about other skills. This <em>no-commits</em> skill could be represented by a different colour in the matrix (if no commits are found).</li>
 <pre>
 [
   {
