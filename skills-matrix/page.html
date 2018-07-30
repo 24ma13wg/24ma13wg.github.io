@@ -85,9 +85,9 @@
   <small><sup>*</sup> Only includes commits by GitHub accounts using an email address that contains the sub-string <em>wunder</em>.</small>
   <h2 id="notes-2">Notes 2</h2>
   <ul>
-    <li>There is a lot of data to be displayed; both skills and developers need to be filterable, maybe by back-end/dev ops/front-end or Estonia/Finland/Germany/Latvia/UK – whatever is useful. More tags would probably fix this.</li>
-    <li>It relies on a skill being identified from the code of a commit. There could be benefit in inviting pull requests for <em>skill tagging functions</em> from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
-    <li>If someone changes/uses different GitHub names, then they will appear multiple times. Could we add a <code>my-usernames.txt</code> file, so that Elasticsearch knows to use only a single username for indexing?</li>
+    <li>There is a lot of data to be displayed; both skills and developers need to be filterable, maybe by back-end/dev ops/..etc. or Estonia/Finland/...etc. – whatever is useful. More tags would probably fix this.</li>
+    <li>The results rely on a skills being identified from the code of commits. There could be benefit in explaining how to write <em>skill tagging functions</em>, and inviting PRs, from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
+    <li>If someone changes/uses different GitHub names, then they will appear multiple times. Could we add a <code>usernames.txt</code> file, so that Elasticsearch knows to use only a single username for indexing?</li>
 <pre>
 [
   {
@@ -100,8 +100,8 @@
   }
 ]
 </pre>
-    <li>Developers who have been with the company longer – and have made more commits – will appear more skilled, which may, or may not, be fair. We might display data from only the past one year, by default?</li>
-    <li>How do we signal skills that cannot be identified by project commits? Could we have a <code>my-other-skills.txt</code> file, which will be scraped by the robot, and which tells the robot about other skills. This <em>no-commits</em> skill could be represented by a different colour in the matrix (if no commits are found).</li>
+    <li>Developers who have been with the company longer – and who have made more commits – will appear more skilled, which may, or may not, be fair. We might display data from only the past one or two years, by default?</li>
+    <li>How do we signal skills that cannot be identified by project commits? Could we have a <code>more-skills.txt</code> file, which can be indexed by Elasticsearch. These <em>no-commits</em> skills could be represented by a different colour in the matrix (if no commits are found).</li>
 <pre>
 [
   {
@@ -114,7 +114,7 @@
   }
 ]
 </pre>
-    <li>To disclude users no longer at wonder, we might need a <code>disclude-usernames.txt</code> file.</li>
+    <li>To disclude users no longer at Wunder, we might need a <code>exclude.txt</code> file.</li>
     <pre>
 [
   dbloggs,
