@@ -86,6 +86,28 @@
   <h2 id="notes-2">Notes 2</h2>
   <ul>
     <li>There is a lot of data to be displayed; both skills and developers need to be filterable, maybe by back-end/dev ops/..etc. or Estonia/Finland/...etc. – whatever is useful. More tags would probably fix this.</li>
+    <label for="example-1">Filter by country: </label>
+    <select id="example-1">
+      <option value="all" selected>All</option>
+      <option value="estonia">Estonia</option>
+      <option value=finland">Finland</option>
+      <option value="latvia">Latvia</option>
+      <option value="germany">Germany</option>
+      <option value="uk">United Kingdom</option>
+    </select>
+    <label for="example-2">Filter by type: </label>
+    <select id="example-2">
+      <option value="all" selected>All</option>
+      <option value="back-end">Back end</option>
+      <option value=dev-ops">Dev ops</option>
+      <option value="front-end">Front end</option>
+    </select>
+    <label for="example-3">Filter by time: </label>
+    <select id="example-3">
+      <option value="all">All</option>
+      <option value=last-year">Last year</option>
+      <option value="last-two-years" selected>Last 2 years</option>
+    </select>
     <li>The results rely on a skills being identified from the code of commits. There could be benefit in explaining how to write <em>skill tagging functions</em>, and inviting PRs, from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
     <li>If someone changes/uses different GitHub names, then they will appear multiple times. Could we add a <code>usernames.txt</code> file, so that Elasticsearch knows to use only a single username for indexing?</li>
 <pre>
