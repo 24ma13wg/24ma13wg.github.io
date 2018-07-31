@@ -21,14 +21,14 @@
     <time datetime="2018-07-06 00:00">July, 2018</time>
   </small>
   <ul>
-    <li><a href="#user-stories-1">User stories 1</a></li>
-    <li><a href="#self-assessed">Self assessed</a></li>
-    <li><a href="#notes-1">Notes 1</a></li>
+    <li><a href="#assumed-user-stories">Assumed user stories</a></li>
+    <li><a href="#self-assessed-matrix">Self assessed matrix</a></li>
+    <li><a href="#self-assessed-questions">Self assessed questions</a></li>
     <li><a href="#robot-assessed">Robot assessed</a></li>
     <li><a href="#notes-2">Notes 2</a></li>
   </ul>
-  <h2 id="user-stories-1">User stories 1</h2>
-  <p>The self assessed prototype, immediately below, is based on a set of assumed user stories:</p>
+  <h2 id="assumed-user-stories">Assumed user stories</h2>
+  <p>The self assessed matrix, immediately below, is based on a set of assumed user stories:</p>
   <ul>
     <li>As a resourcer, I want to know what skills we are short of so that I can recruit new people who have those skills</li>
     <li>As a resourcer, I want to know what skills we are short of, and who wants to increase a certain skill, so that I can organise appropriate training</li>
@@ -38,8 +38,7 @@
     <li>As a developer, I want to know what skills are strategically important to the company, and where there are deficiencies, so that I may develop my skills in areas where there is a shortage</li>
     <li>As a developer, I want to know who else is learning a skill so that I might get in touch and share knowledge.</li>
   </ul>
-
-  <h2 id="self-assessed">Self assessed</h2>
+  <h2 id="self-assessed-matrix">Self assessed matrix</h2>
   <form>
     <label for="filter">Filter by: </label>
     <select id="filter">
@@ -53,7 +52,7 @@
   <p>Hover over the data points to see who has the skill. The legend indicates how developed/developing their skill level is. They may also be filtered with the select list. The data points are generated from a simple, but hopefully versatile, data object:</p>
 <pre>
 {
-  "name": "Charlie Bloggs",
+  "name": "Josiah Bloggs",
   "category": "Back end",
   "skill": "Drupal",
   "project": true,
@@ -61,21 +60,21 @@
   "teacher": false
 }
 </pre>
-  <p>Data capture would be handled by a separate application. I think that grading skill level, either by self assessment and/or by peer review, is problematic. Binary questions are better:</p>
+  <p>Data capture would be handled by a separate application. I think that grading skill level, either by self assessment and/or by peer review, is problematic. Binary questions are, perhaps, better:</p>
   <ul>
-    <li>Do you have any x skills: yes/no</li>
-    <li>Do you feel confident applying skill x to a client project: yes/no</li>
-    <li>Is it a priority for you to increase your x skills: yes/no</li>
-    <li>Do you feel confident to teach/coach skill x to others: yes/no</li>
+    <li>Do you have any x skills? Yes/No</li>
+    <li>Do you feel confident applying skill x to a client project? Yes/No</li>
+    <li>Are you currently learning skill x? Yes/No</li>
+    <li>Do you feel confident to teach/coach skill x to others? Yes/No</li>
   </ul>
-  <p>For example, if you feel confident that you could be part of a team that delivers a client project built mainly with Vue.js, then you should register Vue.js as a project skill. If you are not yet at this level, but can build applications with Vue.js, you should register it as a skill. If you are currently studying Vue.js, mark yourself as a student. If you feel you can, and want to,  teach Vue.js to others, then mark yourself as a teacher.</p>
-  <h2 id="notes-1">Notes 1</h2>
+  <p>For example, if a developer feels confident that they could be part of a team that delivers a client project built mainly with Vue.js, then they should register Vue.js as a project skill. If they are not yet at this level, but can build applications with Vue.js, they should register it as a skill. If they are currently studying Vue.js, they should indicate that they are a student. If they feel able, and want to, teach Vue.js to others, then they should indicate that they can be a teacher.</p>
+  <h2 id="self-assessed-questions">Self assessed questions</h2>
   <ul>
-    <li>How are we define a skill? Just <em>code</em> skills?</li>
+    <li>How are we to define a skill? Only <em>coding</em> skills?</li>
     <li>How granular can/should we get with identifying skills? For example: <em>Back end > PHP > Drupal > Drupal 8 > Block plugins</em>?</li>
     <li>Data privacy: skills you don't have, or have not developed yet, could be considered sensitive information.</li>
-    <li>This does not identify project availability.</li>
-    <li>Add more views, like a personal view? For example:</li>
+    <li>How should we identify project availability?</li>
+    <li>Should we add more views, like a personal view? For example:</li>
   </ul>
   <div class="personal"></div>
   <h2 id="robot-assessed">Robot assessed</h2>
@@ -113,12 +112,12 @@
 <pre>
 [
   {
-    "primary": "Carter Bloggs",
-    "others": ["CBloggs", "zelda"]
+    "primary": "Kaylee Bloggs",
+    "others": ["KBloggs", "zelda"]
   },
   {
-    "primary": "chrisb",
-    "others": ["ChristopherBloggs"]
+    "primary": "kennedyb",
+    "others": ["KennedyBloggs"]
   }
 ]
 </pre>
@@ -127,11 +126,11 @@
 <pre>
 [
   {
-    "username": "Charlie Bloggs",
+    "username": "Kinsley Bloggs",
     "others": ["React", "d3"]
   },
   {
-    "username": "chrisb",
+    "username": "landonb",
     "others": ["Less, Sass"]
   }
 ]
@@ -139,9 +138,9 @@
     <li>To exclude users no longer at Wunder from the index, we might need a <code>exclude.txt</code> file.</li>
     <pre>
 [
-  dbloggs,
-  eason_bloggs,
-  GrabrialBloggs
+  leahbloggs,
+  leo_bloggs,
+  LeviBloggs
 ]
 </pre>
   </ul>

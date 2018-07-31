@@ -1200,7 +1200,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "Laravel",
     "project": false,
@@ -1208,7 +1208,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "Drupal",
     "project": true,
@@ -1216,7 +1216,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "React.js",
     "project": false,
@@ -1224,7 +1224,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Tools",
     "skill": "Git",
     "project": false,
@@ -1232,7 +1232,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "CSS",
     "project": true,
@@ -1240,7 +1240,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "D3.js",
     "project": true,
@@ -1248,7 +1248,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "PHP",
     "project": true,
@@ -1256,7 +1256,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "Solr",
     "project": false,
@@ -1264,7 +1264,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "Elasticsearch",
     "project": false,
@@ -1272,7 +1272,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "Less",
     "project": false,
@@ -1280,7 +1280,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "webpack",
     "project": false,
@@ -1288,7 +1288,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "HTML",
     "project": true,
@@ -1296,7 +1296,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "Bootstrap",
     "project": false,
@@ -1304,7 +1304,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "jQuery",
     "project": false,
@@ -1312,7 +1312,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Front end",
     "skill": "JavaScript",
     "project": false,
@@ -1320,7 +1320,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Back end",
     "skill": "SQL",
     "project": false,
@@ -1328,7 +1328,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Tools",
     "skill": "Vagrant",
     "project": false,
@@ -1336,7 +1336,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Tools",
     "skill": "Drush",
     "project": false,
@@ -1344,7 +1344,7 @@
     "teacher": false
   },
   {
-    "name": "Claire Bloggs",
+    "name": "Julian Bloggs",
     "category": "Tools",
     "skill": "Composer",
     "project": false,

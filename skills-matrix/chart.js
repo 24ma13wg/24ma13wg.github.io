@@ -234,8 +234,8 @@ d3.json("data.json").then(function (data) {
       .attr("width", width)
 
       // @todo: Add dynamic height
-      .attr("height", 510 + footer);
-    const person = "Claire Bloggs";
+      .attr("height", 523 + footer);
+    const person = "Julian Bloggs";
     const profile = data.filter(d => {
       return d.name === person;
     });
