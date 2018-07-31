@@ -45,16 +45,23 @@ figcaption { margin: 16px 0; font-style: italic; text-align: center }
   margin-bottom: 0
 }
 
-.home h2 { margin: 0; font-size: 35px }
 .home h1 {
-  margin: 30px 0 0;
+  margin: 0;
+  padding: 0;
   border-top: none;
   border-bottom: none;
-  font-size: 45px
+  font-size: 30px;
+  line-height: initial
+}
+.home p { margin: 0; padding-bottom: 20px }
+.home h2 {
+  margin: 40px 0 10px;
+  padding: 0;
+  font-size: 35px;
+  line-height: initial
 }
 
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
-.home li:last-child { margin-top: 20px }
 
 .root {vertical-align: bottom }
 
