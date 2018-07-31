@@ -95,3 +95,5 @@ pre {
 footer { padding: 50px 0 70px }
 footer p:first-child { margin-top: 0 }
 footer p:last-child { margin-bottom: 0 }
+
+.notebook h1 { border-top: 1px solid #edebeb; border-bottom: 1px solid #edebeb }
