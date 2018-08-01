@@ -25,7 +25,7 @@
     <li><a href="#self-assessed-matrix">Self assessed matrix</a></li>
     <li><a href="#self-assessed-questions">Self assessed questions</a></li>
     <li><a href="#robot-assessed-matrix">Robot assessed matrix</a></li>
-    <li><a href="#notes-2">Notes 2</a></li>
+    <li><a href="#robot-assessed-questions">Robot assessed questions</a></li>
   </ul>
   <h2 id="assumed-user-stories">Assumed user stories</h2>
   <p>The self assessed matrix, immediately below, is based on a set of assumed user stories:</p>
@@ -82,11 +82,11 @@
   <div class="wrapper"><div class="robot"></div></div>
   <small class="scroll-right">Please scroll right &rArr;</small>
   <small><sup>*</sup> Only includes commits by GitHub accounts using an email address that contains the sub-string <em>wunder</em>.</small>
-  <h2 id="notes-2">Notes 2</h2>
+  <h2 id="robot-assessed-questions">Robot assessed questions</h2>
   <ul>
-    <li>There is a lot of data to be displayed; both skills and developers need to be filterable, maybe by back-end/dev ops/..etc. or Estonia/Finland/...etc. – whatever is useful. More tags would probably fix this.</li>
-    <label for="example-1">Filter by country: </label>
-    <select id="example-1">
+    <li>Should skills and users be filterable? Probably yes because there is a lot of data. More tags would probably fix this. For example:</li>
+    <label for="country">Filter by country: </label>
+    <select id="country">
       <option value="all" selected>All</option>
       <option value="estonia">Estonia</option>
       <option value=finland">Finland</option>
@@ -94,21 +94,21 @@
       <option value="germany">Germany</option>
       <option value="uk">United Kingdom</option>
     </select>
-    <label for="example-2">Filter by type: </label>
-    <select id="example-2">
+    <label for="type">Filter by type: </label>
+    <select id="type">
       <option value="all" selected>All</option>
       <option value="back-end">Back end</option>
       <option value=dev-ops">Dev ops</option>
       <option value="front-end">Front end</option>
     </select>
-    <label for="example-3">Filter by time: </label>
-    <select id="example-3">
+    <label for="time">Filter by time: </label>
+    <select id="time">
       <option value="all">All</option>
       <option value=last-year">Last year</option>
       <option value="last-two-years" selected>Last 2 years</option>
     </select>
-    <li>The results rely on a skills being identified from the code of commits. There could be benefit in explaining how to write <em>skill tagging functions</em>, and inviting PRs, from anyone who wants to see <em>their</em> skill identified and included in the matrix</li>
-    <li>If someone changes/uses different GitHub names, then they will appear multiple times. Could we add a <code>usernames.txt</code> file, so that Elasticsearch knows to use only a single username for indexing?</li>
+    <li>How can we teach Elasticsearch to identify all the different skills? The results rely on a skills being identified from the code of commits. There may be benefit in inviting PRs from anyone who can develop a good test to ensure <em>their</em> skill is identified and included in the matrix.</li>
+    <li>How can we fix the situation where someone changes/uses different GitHub names? They will appear multiple times! Could we add a <code>usernames.txt</code> file, so that Elasticsearch knows to use only a single username for indexing?</li>
 <pre>
 [
   {
@@ -121,21 +121,39 @@
   }
 ]
 </pre>
-    <li>Developers who have been with the company longer – and who have made more commits – will appear more skilled, which may, or may not, be fair. We might display data from only the past one or two years, by default?</li>
-    <li>How do we signal skills that cannot be identified by project commits? Could we have a <code>more-skills.txt</code> file, which can be indexed by Elasticsearch. These <em>no-commits</em> skills could be represented by a different colour in the matrix (if no commits are found).</li>
+    <li>Developers who have been with the company longer – and who have made more commits – will appear more skilled, which may, or may not, be fair. How can we prevent too much bias? We might display data from only the past one or two years, by default?</li>
+    <li>How do we signal skills that cannot be identified by project commits? Could we have a <code>more-skills.txt</code> file, which can be read by Elasticsearch? These <em>no-commits</em> skills could be represented by a different colour in the matrix (if no commits are found).</li>
 <pre>
 [
   {
     "username": "Kinsley Bloggs",
-    "others": ["React", "d3"]
+    "others": [
+      {
+        "skill": "React",
+        "type": "Front end"
+      },
+      {
+        "skill": "D3",
+        "type": "Front end"
+      }
+    ]
   },
   {
     "username": "landonb",
-    "others": ["Less, Sass"]
+    "others": [
+      {
+        "skill": "Less",
+        "type": "Front end"
+      },
+      {
+        "skill": "Sass",
+        "type": "Front end"
+      }
+    ]
   }
 ]
 </pre>
-    <li>To exclude users no longer at Wunder from the index, we might need a <code>exclude.txt</code> file.</li>
+    <li>How to exclude users, who are no longer at Wunder, from the index? Can an <code>exclude.txt</code> file be read?</li>
     <pre>
 [
   leahbloggs,
