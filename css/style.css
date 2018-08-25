@@ -58,12 +58,14 @@ footer { padding: 50px 0 70px }
 footer p:first-child { margin-top: 0 }
 footer p:last-child { margin-bottom: 0 }
 
+hr { margin-top: 30px; border-top: 1px dotted }
+
 .centre {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
-  margin-bottom: 0
+  margin-top: 20px;
+  margin-bottom: 20px
 }
 
 .root {vertical-align: bottom }
@@ -82,7 +84,7 @@ footer p:last-child { margin-bottom: 0 }
 p.todo {
   background: #ddeaae;
   padding: 5px 5px 5px 40px;
-  border-left: 15px solid #c6d29c;
+  border-left: 15px solid #cce085;
   font-style: italic;
 }
 p.todo::before {
@@ -98,7 +100,7 @@ p.todo::before {
   font-size: 30px;
   line-height: initial
 }
-.home p { margin: 0; padding-bottom: 20px }
+.home p, ul { margin: 0; padding: 0 }
 .home h2 {
   margin: 40px 0 10px;
   padding: 0;
@@ -107,9 +109,6 @@ p.todo::before {
 }
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
 
-.notebook h1 {
-  border-top-style: dashed;
-  border-bottom-style: dashed;
-}
+.notebook h1 { background-color: #fafafa; border-style: none }
 .notebook nav, .notebook h1, .notebook time { text-align: center }
 .notebook time { display: block }
