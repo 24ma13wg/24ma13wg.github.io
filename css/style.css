@@ -58,7 +58,7 @@ footer { padding: 50px 0 70px }
 footer p:first-child { margin-top: 0 }
 footer p:last-child { margin-bottom: 0 }
 
-hr { margin-top: 30px; border-top: 1px dotted }
+.rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
 
 .centre {
   display: flex;
