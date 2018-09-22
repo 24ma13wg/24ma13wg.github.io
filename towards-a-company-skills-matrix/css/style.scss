@@ -1,0 +1,170 @@
+$black:                     #0a0a0a;
+$grey:                      #a7a9ab;
+$blue:                      #0000ff;
+$emerald:                   #499145;
+$light-beige:               #f6f6f0;
+
+.skills-matrix {
+  margin-top: 60px;
+  font-size: small;
+
+  a, %a,
+  a:focus,
+  a:hover,
+  a:active {
+    color: blue;
+    cursor: pointer;
+  }
+
+  table {
+    border-spacing: 3px;
+    border-collapse: separate;
+    font-size: small;
+
+    th {
+      font-weight: lighter;
+      white-space: nowrap;
+    }
+
+    td {
+      width: 27px;
+      height: 27px;
+      background-color: $light-beige;
+      box-sizing: border-box;
+      border: 2px solid $light-beige;
+
+      &.skills-matrix--basic {
+        background-color: lighten($emerald, 45%);
+        border-color: lighten($emerald, 45%);
+      }
+
+      &.skills-matrix--projects {
+        background-color: $emerald;
+        border-color: $emerald;
+      }
+
+      &.skills-matrix--student {
+        border-color: $black;
+      }
+
+      &.skills-matrix--teacher {
+        background-color: $black;
+      }
+    }
+  }
+
+  .skills-matrix__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .skills-matrix__legend {
+      th:not(:first-child) {
+        padding-left: 20px;
+      }
+    }
+  }
+
+  .skills-matrix__outer {
+    display: flex;
+
+    .skills-matrix__inner {
+      flex: 1;
+      position: relative;
+      left: 0;
+      right: 126px;
+      overflow-x: scroll;
+
+      > div {
+        margin-left: 126px;
+      }
+
+      th:first-child {
+        position: absolute;
+        width: 126px;
+        left: 0;
+      }
+
+      thead {
+        th {
+          height: 140px;
+          padding: 0;
+
+          &.skills-matrix--total {
+            div {
+              transform: translate(0px, 46px) rotate(-90deg);
+            }
+          }
+
+          div {
+            transform: translate(0px, 54px) rotate(-90deg);
+            width: 27px;
+          }
+        }
+      }
+
+      tbody {
+        th {
+          font-weight: lighter;
+          text-align: left;
+
+          div {
+            width: 116px;
+          }
+        }
+
+        td {
+          text-align: center;
+
+          &.skills-matrix--total {
+            background-color: transparent;
+            border: none;
+          }
+        }
+      }
+
+      .skills-matrix--total {
+        div {
+          width: 40px;
+          color: $grey;
+        }
+      }
+    }
+
+    .skills-matrix__filters {
+      width: 220px;
+      margin-left: 60px;
+      overflow: hidden;
+
+      a,
+      span,
+      .form-checkboxes > div {
+        white-space: nowrap;
+      }
+
+      .skills-matrix__actions {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .form-checkboxes {
+        overflow: scroll;
+      }
+
+      > fieldset{
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        legend {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
