@@ -3,7 +3,7 @@
  * Skills matrix.
  */
 
-// Generate mock data.
+// Generate random data.
 const names = ["Steve Hughes", "Justin Phillips", "Jim Miller", "Frank Cooper", "Marcel Hernandez", "Samuel Gonzalez", "Gerald Butler", "Carl Thompson", "Roger Long", "Kenneth Watson", "Patrick Sanders", "Albert Kelly", "Phillip Moore", "Matt Rivera", "Will Henderson", "David Price", "Carlos Torres", "George Ramirez", "Raymond Bell", "Clarence Stewart", "Henry Bailey", "Steve Harris", "John Young", "Robert Alexander", "Joseph Clark", "Ryan Hall", "Brian Brown", "Thomas Cook", "Howard Roberts", "Ernest James", "Jeffrey Howard", "Jerry Foster", "Philip Lewis", "Joe Thomas", "Charles Bennett", "Alberto Martinez", "Terry Adams", "Roy Peterson", "Randy Mitchell", "Eugene Ross", "Douglas Wood", "Joshua Ward", "Elliot Baker", "Lawrence Coleman", "Eric Johansson", "Chris White", "Arthur Brooks", "Michael Powell", "Louis Griffin", "Martin Flores"];
 const raw = [];
 for (let name of names) {
@@ -25,14 +25,13 @@ for (let name of names) {
       name: name,
       skill: tech[0],
       basic: true,
-      projects: Math.random() > .4,
-      student: Math.random() > .9,
-      teacher: Math.random() > .95
+      projects: Math.floor(Math.random() * 100) + 1 > 50,
+      student: Math.floor(Math.random() * 100) + 1 > 90,
+      teacher: Math.floor(Math.random() * 100) + 1 > 97
     };
     raw.push(skill);
   }
 }
-console.log(raw);
 
 // Get filters width.
 const filtersWidth = d3.select(".skills-matrix__filters").node()
@@ -62,7 +61,7 @@ d3.select(selection).on("click", function() {
 selection = ".skills-matrix__outer .skills-matrix__inner > div";
 const table = d3.select(selection).append("table");
 
-// Initialise matrix (all projects level skills).
+// Initialise matrix (all skills at projects level).
 selection = ".form-checkbox[value=basic], .form-checkbox[value=projects], .form-checkbox.skills-matrix__skill";
 d3.selectAll(selection).property("checked", true);
 update();
@@ -87,6 +86,10 @@ function update () {
 
   // Destroy old table head/body.
   table.selectAll("*").remove();
+
+  // Get checked levels.
+  const selection = ".form-checkbox.skills-matrix__level:checked";
+  const levels = d3.selectAll(selection).nodes().map(d => d.value);
 
   // Generate new rows.
   const rows = build();
@@ -114,16 +117,16 @@ function update () {
     })
     .classed("skills-matrix--total", (d, i) => i === 1)
     .classed("skills-matrix--basic", (d, i) => {
-      return typeof d === "object" && d.basic && i > 1
+      return typeof d === "object" && d.basic && i > 1 && levels.includes("basic");
     })
     .classed("skills-matrix--projects", (d, i) => {
-      return typeof d === "object" && d.projects && i > 1
+      return typeof d === "object" && d.projects && i > 1 && levels.includes("projects");
     })
     .classed("skills-matrix--student", (d, i) => {
-      return typeof d === "object" && d.student && i > 1
+      return typeof d === "object" && d.student && i > 1 && levels.includes("student");
     })
     .classed("skills-matrix--teacher", (d, i) => {
-      return typeof d === "object" && d.teacher && i > 1
+      return typeof d === "object" && d.teacher && i > 1 && levels.includes("teacher");
     })
     .append("div")
     .text((d, i) => i > 1 ? "" : d);
@@ -145,7 +148,6 @@ function build() {
   selection = ".form-checkbox.skills-matrix__skill:checked + label";
   const skills = d3.selectAll(selection).nodes()
     .map(d => d.innerHTML);
-
   const data = raw.filter(e => {
     return skills.includes(e.skill) && levels.some(i => e[i]);
   });

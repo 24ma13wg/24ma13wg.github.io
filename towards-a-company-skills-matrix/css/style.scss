@@ -1,8 +1,8 @@
-$black:                     #0a0a0a;
-$grey:                      #a7a9ab;
+$forest:                    #1d3a1d;
+$dove:                      #a7a9ab;
 $blue:                      #0000ff;
 $emerald:                   #499145;
-$light-beige:               #f6f6f0;
+$sand:                      #f6f6f0;
 
 .skills-matrix {
   margin-top: 60px;
@@ -29,9 +29,9 @@ $light-beige:               #f6f6f0;
     td {
       width: 27px;
       height: 27px;
-      background-color: $light-beige;
+      background-color: $sand;
       box-sizing: border-box;
-      border: 2px solid $light-beige;
+      border: 3px solid $sand;
 
       &.skills-matrix--basic {
         background-color: lighten($emerald, 45%);
@@ -44,11 +44,11 @@ $light-beige:               #f6f6f0;
       }
 
       &.skills-matrix--student {
-        border-color: $black;
+        border-color: $forest;
       }
 
       &.skills-matrix--teacher {
-        background-color: $black;
+        background-color: $forest;
       }
     }
   }
@@ -126,7 +126,7 @@ $light-beige:               #f6f6f0;
       .skills-matrix--total {
         div {
           width: 40px;
-          color: $grey;
+          color: $dove;
         }
       }
     }
@@ -164,7 +164,23 @@ $light-beige:               #f6f6f0;
         legend {
           font-weight: bold;
         }
+
+        &.skills-matrix__skill {
+          max-height: 210px;
+          overflow-y: scroll;
+        }
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }

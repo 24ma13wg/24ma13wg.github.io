@@ -23,7 +23,7 @@
   height: 27px;
   background-color: #f6f6f0;
   box-sizing: border-box;
-  border: 2px solid #f6f6f0;
+  border: 3px solid #f6f6f0;
 }
 .skills-matrix table td.skills-matrix--basic {
   background-color: #d3ead2;
@@ -34,10 +34,10 @@
   border-color: #499145;
 }
 .skills-matrix table td.skills-matrix--student {
-  border-color: #0a0a0a;
+  border-color: #1d3a1d;
 }
 .skills-matrix table td.skills-matrix--teacher {
-  background-color: #0a0a0a;
+  background-color: #1d3a1d;
 }
 .skills-matrix .skills-matrix__top {
   display: flex;
@@ -122,6 +122,21 @@
 }
 .skills-matrix .skills-matrix__outer .skills-matrix__filters > fieldset legend {
   font-weight: bold;
+}
+.skills-matrix .skills-matrix__outer .skills-matrix__filters > fieldset.skills-matrix__skill {
+  max-height: 210px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */
