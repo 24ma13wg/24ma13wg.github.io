@@ -4,7 +4,7 @@
  */
 
 // Generate random data.
-const names = ["Steve Hughes", "Justin Phillips", "Jim Miller", "Frank Cooper", "Marcel Hernandez", "Samuel Gonzalez", "Gerald Butler", "Carl Thompson", "Roger Long", "Kenneth Watson", "Patrick Sanders", "Albert Kelly", "Phillip Moore", "Matt Rivera", "Will Henderson", "David Price", "Carlos Torres", "George Ramirez", "Raymond Bell", "Clarence Stewart", "Henry Bailey", "Steve Harris", "John Young", "Robert Alexander", "Joseph Clark", "Ryan Hall", "Brian Brown", "Thomas Cook", "Howard Roberts", "Ernest James", "Jeffrey Howard", "Jerry Foster", "Philip Lewis", "Joe Thomas", "Charles Bennett", "Alberto Martinez", "Terry Adams", "Roy Peterson", "Randy Mitchell", "Eugene Ross", "Douglas Wood", "Joshua Ward", "Elliot Baker", "Lawrence Coleman", "Eric Johansson", "Chris White", "Arthur Brooks", "Michael Powell", "Louis Griffin", "Martin Flores"];
+const names = ["Steve Hughes", "Justin Phillips", "Jim Miller", "Frank Cooper", "Marcel Hernandez", "Samuel Gonzalez", "Gerald Butler", "Carl Thompson", "Roger Long", "Kenneth Watson", "Patrick Sanders", "Albert Kelly", "Phillip Moore", "Matt Rivera", "Will Henderson", "David Price", "Carlos Torres", "George Ramirez", "Raymond Bell", "Clarence Stewart", "Henry Bailey", "Steve Harris", "John Young", "Robert Alexander", "Joseph Clark", "Ryan Hall", "Brian Brown", "Thomas Cook", "Howard Roberts", "Ernest James", "Jeffrey Howard", "Jerry Foster", "Philip Lewis", "Joe Thomas", "Charles Bennett", "Alberto Martinez", "Terry Adams", "Roy Peterson", "Randy Mitchell", "Eugene Ross", "Douglas Wood", "Joshua Ward", "Elliot Baker", "Lawrence Cole", "Eric Johansson", "Chris White", "Arthur Brooks", "Michael Powell", "Louis Griffin", "Martin Flores"];
 const raw = [];
 for (let name of names) {
   const skills = Math.floor(Math.random() * (8 - 4 + 1)) + 4;
@@ -58,7 +58,7 @@ d3.select(selection).on("click", function() {
 });
 
 // Generate table.
-selection = ".skills-matrix__outer .skills-matrix__inner > div";
+selection = ".skills-matrix__outer .skills-matrix__inner";
 const table = d3.select(selection).append("table");
 
 // Initialise matrix (all skills at projects level).
