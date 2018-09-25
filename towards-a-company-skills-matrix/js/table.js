@@ -62,7 +62,7 @@ selection = ".skills-matrix__outer .skills-matrix__inner";
 const table = d3.select(selection).append("table");
 
 // Initialise matrix (all skills at projects level).
-selection = ".form-checkbox[value=basic], .form-checkbox[value=projects], .form-checkbox.skills-matrix__skill";
+selection = ".form-checkbox.skills-matrix__level, .form-checkbox[value=angular], .form-checkbox[value=backbone], .form-checkbox[value=css], .form-checkbox[value=jquery], .form-checkbox[value=javascript], .form-checkbox[value=less], .form-checkbox[value=npm], .form-checkbox[value=react], .form-checkbox[value=redux], .form-checkbox[value=sass]";
 d3.selectAll(selection).property("checked", true);
 update();
 

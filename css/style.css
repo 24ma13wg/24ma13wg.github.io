@@ -1,5 +1,5 @@
 /* Base styles */
-a { text-decoration: none }
+a:link, a:visited, a:hover, a:active { color: blue; text-decoration: none }
 
 body {
   max-width: 960px;
