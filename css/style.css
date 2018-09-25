@@ -59,8 +59,6 @@ pre {
 
 time { font-style: italic }
 
-ol, ul { list-style-position: inside }
-
 /* Component styles */
 .centre {
   display: flex;
@@ -104,7 +102,7 @@ ol, ul { list-style-position: inside }
   font-size: 30px;
   line-height: initial
 }
-.home p, ul { margin: 0; padding: 0 }
+.home p, .home ul { margin: 0; padding: 0 }
 .home h2 {
   margin: 40px 0 10px;
   padding: 0;
@@ -113,7 +111,7 @@ ol, ul { list-style-position: inside }
 }
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
 
-.blog p:first-of-type { margin-top: 50px; }
+.blog .first { margin-top: 50px; }
 
 .notebook h1 { background-color: #fafafa; border-style: none }
 .notebook nav, .notebook h1, .notebook time { text-align: center }
