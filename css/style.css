@@ -68,8 +68,12 @@ time { font-style: italic }
   margin-bottom: 20px
 }
 
-.cta { display: flex; align-items: center; padding: 20px }
-.cta.wunder { background: #fffbf5 }
+.cta {
+  display: flex;
+  background: linear-gradient(to bottom, #ffc, #ffa);
+  align-items: center;
+  padding: 20px
+}
 .cta svg { flex-shrink: 0 }
 .cta path { fill: black }
 .cta span {
@@ -78,8 +82,6 @@ time { font-style: italic }
   word-wrap: break-word;
   word-break: break-word
 }
-
-.root {vertical-align: bottom }
 
 .rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
 
