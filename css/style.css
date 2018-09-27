@@ -52,7 +52,7 @@ pre {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   background: #fafafa;
-  padding: 40px;
+  padding: 20px 20px 20px 40px;
   border-left: 15px solid #ececec;
   line-height: 30px;
 }
@@ -70,9 +70,10 @@ time { font-style: italic }
 
 .cta {
   display: flex;
-  background: linear-gradient(to bottom, #ffc, #ffa);
-  align-items: center;
-  padding: 20px
+  background-color: #ffffe6;
+  padding: 20px 20px 20px 40px;
+  border-left: 15px solid #f5f5ba;
+  align-items: center
 }
 .cta svg { flex-shrink: 0 }
 .cta path { fill: black }
@@ -86,8 +87,8 @@ time { font-style: italic }
 .rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
 
 .todo {
-  background: #ddeaae;
-  padding: 10px 5px 10px 40px;
+  background-color: #ddeaae;
+  padding: 20px 20px 20px 40px;
   border-left: 15px solid #cce085;
   font-style: italic;
 }

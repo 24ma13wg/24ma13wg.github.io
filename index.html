@@ -22,12 +22,9 @@
       </ul>
     </div>
     <script>
-      const lighterColours = ["#fcfff5", "#fdf5ff", "#fafafa"];
-      const darkerColours = ["#f3ffd6", "#f7d6ff", "#d9d9d9"];
-      const random = Math.floor(Math.random() * lighterColours.length);
-      const topColour = lighterColours[random];
-      const bottomColour = darkerColours[random];
-      document.body.style.background = "linear-gradient(to bottom, " + topColour + ", " + bottomColour + ")";
+      const colors = ['#fcfff5', '#fdf5ff', '#fafafa'];
+      const random = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.background = random;
     </script>
   </body>
 </html>
