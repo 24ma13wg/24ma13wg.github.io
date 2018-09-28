@@ -16,15 +16,15 @@ code { padding: 5px }
 
 figcaption { margin: 16px 0; font-style: italic; text-align: center }
 
-footer { padding: 50px 0 70px }
-footer p:first-child { margin-top: 0 }
-footer p:last-child { margin-bottom: 0 }
-
 @font-face {
   font-family: 'FatFrank';
   src: url('../fonts/FatFrank/FatFrank-Regular.woff2') format('woff2'),
   url('../fonts/FatFrank/FatFrank-Regular.woff') format('woff');
 }
+
+footer { padding: 40px 0 60px }
+footer p:first-child { margin-top: 0 }
+footer p:last-child { margin-bottom: 0 }
 
 h1, h2, h3 { font-family: FatFrank, sans-serif; font-weight: normal }
 h1 {
@@ -68,12 +68,7 @@ time { font-style: italic }
   margin-bottom: 20px
 }
 
-.cta {
-  background-color: #ffffe6;
-  padding: 20px;
-  border-left: 15px solid #f5f5ba;
-  text-align: center
-}
+.cta { padding: 20px; text-align: center }
 .cta img { display: block; width: 100% }
 .cta span {
   overflow-wrap: break-word;
@@ -91,27 +86,18 @@ time { font-style: italic }
   .cta span { margin-left: 20px }
 }
 
+.message { padding: 20px 20px 20px 40px; border-left: 15px solid }
+.message::before { font-weight: bold }
+
 .rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
 
-.todo {
-  background-color: #ddeaae;
-  padding: 20px 20px 20px 40px;
-  border-left: 15px solid #cce085;
-  font-style: italic;
-}
-.todo::before {
-  content: "Todo: ";
-}
+.cta { background-color: #ffffe6; border-color: #f5f5ba }
 
-.error {
-  background-color: #fff1f1;
-  padding: 20px 20px 20px 40px;
-  border-left: 15px solid #f3dcdc;
-  font-style: italic;
-}
-.error::before {
-  content: "Error: ";
-}
+.todo { background-color: #ddeaae; border-color: #cce085 }
+.todo::before { content: "Todo: " }
+
+.error { background-color: #fff1f1; border-color: #f3dcdc }
+.error::before { content: "Error: " }
 
 /* Page styles */
 .home h1 {
