@@ -68,22 +68,22 @@ time { font-style: italic }
   margin-bottom: 20px
 }
 
-.cta { padding: 20px; text-align: center }
-.cta img { display: block; width: 100% }
-.cta span {
+.call-to-action { padding: 20px; text-align: center }
+.call-to-action img { display: block; width: 100% }
+.call-to-action span {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word
 }
 @media (min-width: 576px) {
-  .cta {
+  .call-to-action {
     display: flex;
     padding-left: 40px;
     align-items: center;
     text-align: left
   }
-  .cta img { display: inline; width: auto; flex-shrink: 0 }
-  .cta span { margin-left: 20px }
+  .call-to-action img { display: inline; width: auto; flex-shrink: 0 }
+  .call-to-action span { margin-left: 20px }
 }
 
 .message { padding: 20px 20px 20px 40px; border-left: 15px solid }
@@ -91,13 +91,14 @@ time { font-style: italic }
 
 .rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
 
-.cta { background-color: #ffffe6; border-color: #f5f5ba }
-
-.todo { background-color: #ddeaae; border-color: #cce085 }
-.todo::before { content: "Todo: " }
+/* Message styles */
+.call-to-action { background-color: #ffffe6; border-color: #f5f5ba }
 
 .error { background-color: #fff1f1; border-color: #f3dcdc }
 .error::before { content: "Error: " }
+
+.todo { background-color: #ddeaae; border-color: #cce085 }
+.todo::before { content: "Todo: " }
 
 /* Page styles */
 .home h1 {
