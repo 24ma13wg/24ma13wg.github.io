@@ -68,6 +68,12 @@ time { font-style: italic }
   margin-bottom: 20px
 }
 
+.rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
+
+/* Message styles */
+.message { padding: 20px 20px 20px 40px; border-left: 15px solid }
+.message::before { font-weight: bold }
+
 .call-to-action { padding: 20px; text-align: center }
 .call-to-action img { display: block; width: 100% }
 .call-to-action span {
@@ -85,13 +91,6 @@ time { font-style: italic }
   .call-to-action img { display: inline; width: auto; flex-shrink: 0 }
   .call-to-action span { margin-left: 20px }
 }
-
-.message { padding: 20px 20px 20px 40px; border-left: 15px solid }
-.message::before { font-weight: bold }
-
-.rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
-
-/* Message styles */
 .call-to-action { background-color: #ffffe6; border-color: #f5f5ba }
 
 .error { background-color: #fff1f1; border-color: #f3dcdc }
@@ -118,8 +117,4 @@ time { font-style: italic }
 }
 .home ul, .archive ul { margin: 0; padding: 0; list-style: none }
 
-.blog .first { margin-top: 50px; }
-
-.notebook h1 { background-color: #fafafa; border-style: none }
-.notebook nav, .notebook h1, .notebook time { text-align: center }
-.notebook time { display: block }
+.lead { margin-top: 50px; }

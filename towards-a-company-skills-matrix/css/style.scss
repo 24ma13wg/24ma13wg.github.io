@@ -1,5 +1,7 @@
 $blue:                      #0000ff;
+$cell:                      24px;
 $emerald:                   #499145;
+$font-size:                 16px;
 $forest:                    #1d3a1d;
 $iron:                      #a7a9ab;
 $sand:                      #f6f6f0;
@@ -28,7 +30,7 @@ $white:                     #ffffff;
     table {
       border-spacing: 3px;
       border-collapse: separate;
-      font-size: 17px;
+      font-size: $font-size;
 
       th {
         font-weight: lighter;
@@ -37,8 +39,8 @@ $white:                     #ffffff;
       }
 
       td {
-        width: 27px;
-        height: 27px;
+        width: $cell;
+        height: $cell;
         background-color: $sand;
         box-sizing: border-box;
         border: 3px solid $sand;
@@ -67,7 +69,7 @@ $white:                     #ffffff;
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
-      font-size: 17px;
+      font-size: $font-size;
 
       .skills-matrix__legend {
         th:not(:first-child) {
@@ -103,7 +105,7 @@ $white:                     #ffffff;
 
             div {
               transform: translate(0px, 54px) rotate(-90deg);
-              width: 27px;
+              width: $cell;
             }
           }
         }
@@ -146,7 +148,7 @@ $white:                     #ffffff;
         width: 220px;
         margin-left: 60px;
         overflow: hidden;
-        font-size: 17px;
+        font-size: $font-size;
 
         a,
         span,
