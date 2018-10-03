@@ -1,4 +1,4 @@
-path { fill: none; pointer-events: all }
+.map path { fill: none; pointer-events: all }
 .community path { stroke: #d9dcc8; fill: #eff0ea; }
 .community path:hover, .community path:active { fill-opacity: .5 }
 .graph-scroll-active .active path {
