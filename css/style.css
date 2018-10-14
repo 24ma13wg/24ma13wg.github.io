@@ -4,9 +4,8 @@ a:link, a:visited, a:hover, a:active { color: blue; text-decoration: none }
 body {
   max-width: 960px;
   min-height: 100%;
-  background-image: linear-gradient(to left bottom, #e9f4e9, #ddf3db, #d3f2cc, #caf1bb, #c3efaa);
   margin: 0 auto;
-  padding: 0 30px 0;
+  padding: 0 20px 0;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -65,8 +64,6 @@ time { font-style: italic }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px
 }
 
 .rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
@@ -87,7 +84,7 @@ time { font-style: italic }
   word-wrap: break-word;
   word-break: break-word
 }
-@media (min-width: 576px) {
+@media only screen and (min-width: 576px) {
   .call-to-action {
     flex-direction: row;
     padding-left: 40px;
@@ -105,6 +102,9 @@ time { font-style: italic }
 .todo::before { content: "Todo: " }
 
 /* Page styles */
+.home {
+  background-image: linear-gradient(to left bottom, #e9f4e9, #ddf3db, #d3f2cc, #caf1bb, #c3efaa)
+}
 .home h1 {
   margin: 0;
   padding: 0;
@@ -113,13 +113,26 @@ time { font-style: italic }
   font-size: 30px;
   line-height: initial
 }
-.home p, .home ul { margin: 0; padding: 0 }
 .home h2 {
   margin: 40px 0 10px;
   padding: 0;
   font-size: 35px;
   line-height: initial
 }
-.home ul, .archive ul { margin: 0; padding: 0; list-style: none }
+.home p, .home ul { margin: 0; padding: 0; list-style: none }
+.home li { padding-bottom: 10px }
+.home li a, .home li time { display: block }
+@media only screen and (max-width: 576px) {
+  .home ul { max-height: 200px; overflow: scroll; padding-right: 10px }
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(130, 155, 117, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
 
 .lead { margin-top: 50px; }
