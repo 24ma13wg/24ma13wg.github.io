@@ -4,7 +4,7 @@ a:link, a:visited, a:hover, a:active { color: blue; text-decoration: none }
 body {
   max-width: 960px;
   min-height: 100%;
-  background-image: linear-gradient(to left bottom, #f5f6ea, #f5f7db, #f6f9cc, #f7fabc, #f8fbac);
+  background-image: linear-gradient(to left bottom, #e9f4e9, #ddf3db, #d3f2cc, #caf1bb, #c3efaa);
   margin: 0 auto;
   padding: 0 30px 0;
   font-family: 'Open Sans', sans-serif;
