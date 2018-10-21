@@ -249,16 +249,16 @@
     <h2>Data visualisation and filtering</h2>
     <p>Whichever way is used to capture data, a matrix is a good way to visualise it. It's certainly possible to create something in a spreadsheet, with pivot tables and conditional formatting. However, spreadsheets can become neglected over time, and multiple versions can appear (and diverge).</p>
     <p>Our skills matrix will get its data from our company intranet user accounts. These accounts are owned by our staff, who may edit them as they choose. For each account, we can fetch the given skills as <a href="https://www.w3schools.com/Js/js_objects.asp" target="_blank">objects</a>, which look like this:</p>
-  <pre>
-  { 
-    "name": "Chris White", 
-    "skill": "JavaScript",
-    "basic": true, 
-    "projects": true, 
-    "student": false, 
-    "teacher": false 
-  } 
-  </pre>
+<pre>
+{ 
+  "name": "Chris White", 
+  "skill": "JavaScript",
+  "basic": true, 
+  "projects": true, 
+  "student": false, 
+  "teacher": false 
+} 
+</pre>
     <p>With objects like these, the matrix, above, is generated with <a href="https://d3js.org/" target="_blank">d3.js</a>.</p>
     <p>The inspiration for the two checkboxes filters (<em>Skill level</em> and <em>Skill</em>) is an online shop. Let's say I want to buy a pair of new shoes. The starting point of my search is with every pair of shoes in the shop. I refine my search by <em>type</em>, then by <em>size</em>, and finally let's say I want them in the <em>colour</em> blue. I now have a shortlist, from which I can examine the details of the pairs I like. Here, instead of returning a list of items after every refinement, we return a matrix.</p>
     <h2>Beyond a skills matrix</h2>
