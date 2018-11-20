@@ -106,6 +106,8 @@ time { font-style: italic }
   background-image: linear-gradient(to left bottom, #e9f4e9, #ddf3db, #d3f2cc, #caf1bb, #c3efaa)
 }
 .home h1 {
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   border-top: none;
@@ -113,6 +115,7 @@ time { font-style: italic }
   font-size: 30px;
   line-height: initial
 }
+.home h1 span { margin-left: 10px }
 .home h2 {
   margin: 40px 0 10px;
   padding: 0;
