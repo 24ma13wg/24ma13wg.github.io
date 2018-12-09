@@ -65,7 +65,7 @@
   <p>Screen readers look into the DOM, not at what is displayed on the web page/application. Keyboard-only users navigate the DOM in order, from top to bottom, moving focus to navigate up and down. Blind and low-vision users will, likely, be unaware if elements on the web page have been visually re-ordered with CSS. This is why it's important to have DOM elements ordered logically. For example:</p>
 <pre>
 &lt;style&gt;.bottom { position: absolute; bottom: 0 }&lt;style&gt;
-&lt;footer class= "bottom "&gt;<em>More text</em>&lt;/footer&gt;
+&lt;footer class="bottom"&gt;<em>More text</em>&lt;/footer&gt;
 &lt;article&gt;<em>Text</em>&lt;/article&gt;
 </pre>
   <p>could be better written:</p>
@@ -75,7 +75,7 @@
 </pre>
   <p>For the same reason, it's important to have parts of a <a href="http://www.w3.org/TR/wai-aria-1.1/#widget" target="_blank">widget</a> (user interface object) grouped together. Splitting up a drop-down menu from its submit button, for example, creates DOM confusion.</p>
   <h2>Adding key handlers</h2>
-  <p>For complex <a data-cke-saved-href="http://www.w3.org/TR/wai-aria-1.1/#widget" href="http://www.w3.org/TR/wai-aria-1.1/#widget" target="_blank">widgets</a>, which are unable to use semantic markup, it's a good idea to add key handlers so that users can interact with them via the keyboard. In this code, the example function can be called by clicking, or by moving the focus and hitting <kbd>A</kbd>:</p>
+  <p>For complex widgets, which are unable to use semantic markup, it's a good idea to add key handlers so that users can interact with them via the keyboard. In this code, the example function can be called by clicking, or by moving the focus and hitting <kbd>A</kbd>:</p>
 <pre>
 &lt;div tabindex="0" onclick="example()" onkeydown="return shortcut(event)"&gt;<em>Text</em>&lt;/div&gt;
 &lt;script&gt;
@@ -91,14 +91,14 @@
   <h2>Managing focus</h2>
   <p>For keyboard-only users you can think of focus as their cursor. Focus is moved forwards with the  <kbd>Tab</kbd> key, backwards with <kbd>Shift</kbd>-<kbd>Tab</kbd>, and it can jump to another region via a keyboard shortcut.</p>
   <p>Most browsers display focus as an outline around the focussed element. Some users cannot see this outline, but they can still be aware of where focus is, if it's managed correctly.</p>
-  <p>In a complex  <a data-cke-saved-href="http://www.w3.org/TR/wai-aria-1.1/#widget" href="http://www.w3.org/TR/wai-aria-1.1/#widget" target="_blank">widget</a>, where the inclusion of semantic markup is not possible, focus can easily get lost or unintentionally reset. This can be very frustrating for keyboard-only users. A fix for this is to use the <code>tabindex</code>  attribute. This attribute makes elements like  <code>div</code> and <code>span</code> keyboard focusable and keyboard inter-actable. It adds elements into the logical tab order – if you pass it a value of zero – or into a customised tab position:</p>
+  <p>In a complex widget, where the inclusion of semantic markup is not possible, focus can easily get lost or unintentionally reset. This can be very frustrating for keyboard-only users. A fix for this is to use the <code>tabindex</code> attribute. This attribute makes elements like <code>div</code> and <code>span</code> keyboard focusable and keyboard inter-actable. It adds elements into the logical tab order – if you pass it a value of zero – or into a customised tab position:</p>
 <pre>
 &lt;!-- Logical tab order --&gt;
 &lt;div onclick="" tabindex="0"&gt;<em>Text</em>&lt;/div&gt;
 &lt;!-- Customised tab position --&gt;
 &lt;div onclick="" tabindex="3"&gt;<em>Text</em>&lt;/div&gt;
 </pre>
-  <p>For use cases where the focus behaviour is confusing or unhelpful, and which <code>tabindex</code>  cannot fix, use the JavaScript: <code>focus.element</code> to customise how focus gets set on your web page or application. In this simple example, focus is returned to the button after the function has executed:</p>
+  <p>For use cases where the focus behaviour is confusing or unhelpful, and which <code>tabindex</code> cannot fix, use the JavaScript: <code>focus.element</code> to customise how focus gets set on your web page or application. In this simple example, focus is returned to the button after the function has executed:</p>
 <pre>
 &lt;button id="exit" onclick="example()"&gt;<em>Exit</em>&lt;/button&gt;
 function example() {
@@ -110,19 +110,19 @@ function example() {
   <p>The <code>alt</code> attribute is set on the <code>img</code> element; it specifies alternative information for users who cannot see an image. All images should have one. If an image is missing this attribute, the screen reader will read out the file name of the image – very annoying for the user, if the file name is a long string of random characters and numbers. For decorative images the <code>alt</code> attribute should be set to an empty string. This tells a screen reader to skip over it. For all other images, provide a concise informative desciption of the image. For <a href="http://www.w3.org/TR/2013/WD-html-longdesc-20130716/#use-cases" target="_blank">use cases where you need to provide a long description</a>, add a <code>longdesc</code> attribute as well.</p>
   <p>Form elements should also be given a description. Without a description screen readers will not announce what the user is supposed to enter into a form field. Use the <code>label</code> element to solve this problem, like this:</p>
 <pre>
-&lt;label for=&quot;user&quot;&gt;Username:&lt;/label&gt;
-&lt;input type=&quot;text&quot; id=&quot;user&quot; /&gt;
-&lt;label for=&quot;pass&quot;&gt;Password:&lt;/label&gt;
-&lt;input type=&quot;password&quot; id=&quot;pass&quot; /&gt;
+&lt;label for="user"&gt;Username:&lt;/label&gt;
+&lt;input type="text" id="user" /&gt;
+&lt;label for="pass"&gt;Password:&lt;/label&gt;
+&lt;input type="password" id="pass" /&gt;
 </pre>
   <h2>Adding semantics</h2>
   <p>A problem that screen readers often face is drawing sufficient <a href="http://www.w3.org/TR/wai-aria-1.1/#def_semantics" target="_blank">semantic</a> meaning from a document.</p>
   <p>Semantics are important, for example, in defining what a <a href="http://www.w3.org/TR/wai-aria-1.1/#def_widget" target="_blank">widget</a> does. If the available information is limited to just element names, like <code>div</code> or <code>span</code> – which don't mean much – screen readers will not announce what a widget does, nor that a user can interact with it. Also, by default, 'divs' and 'spans' are not focused and do not receive keyboard events. Where possible, it's much better to use <a href="http://diveintohtml5.info/semantics.html" target="_blank">more meaningful markup</a>. And not only for widgets; the structure of a document can be given better semantics too, helping screen readers to better understand it. Like using the <code>nav</code> element to markup main navigation links.</p>
   <p>The following code will not be understood as an article, nor will a button be announced by a screen reader, nor will the button do anything by hitting the enter key:</p>
 <pre>
-&lt;div id=&quot;article&quot;&gt;
+&lt;div id="article"&gt;
   &lt;p&gt;Text&lt;/p&gt;
-  &lt;div class=&quot;button&quot;&gt;Submit&lt;/div&gt;
+  &lt;div class="button"&gt;Submit&lt;/div&gt;
 &lt;/div&gt;
 </pre>
   <p>All three problems are solved, if semantic markup is used (it's much cleaner too):</p>
