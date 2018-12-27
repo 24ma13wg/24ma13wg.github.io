@@ -115,6 +115,39 @@ blockquote cite { display: block; text-align: right }
 .todo::before { content: "Todo: " }
 
 /* Page styles */
+.company {
+  max-width: none;
+  min-height: 0;
+  background: #f2f5eb;
+  margin: 0;
+  padding: 0
+}
+.company section {
+  max-width: 960px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 20px 0
+}
+.company section.brand {
+  display: flex;
+  align-items: flex-end;
+  padding-top: 100px
+}
+.company section.brand svg {
+  margin-right: 20px;
+}
+.company header { background: #fcfff4 }
+.company header h1 {
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  border-bottom: none;
+  font-size: 25px;
+  line-height: normal
+}
+.company main h2 { font-size: 25px }
+.company footer { text-align: center }
+
 .home.death-star {
   background-color: #fef7ff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23e3d1e6' fill-opacity='0.25'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
