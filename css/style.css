@@ -146,6 +146,8 @@ blockquote cite { display: block; text-align: right }
   line-height: normal
 }
 .company main h2 { font-size: 25px }
+.company ul { margin: 0; padding: 0; list-style: none }
+.company time { font-size: 20px }
 .company footer { text-align: center }
 
 .home.death-star {
