@@ -184,12 +184,15 @@ blockquote cite { display: block; text-align: right }
   line-height: initial
 }
 .home p { margin: 5px 0; padding: 0 }
-.home ul { margin: 0; padding: 0; list-style: none }
+.home ul {
+  max-height: 160px;
+  overflow: scroll;
+  margin: 0;
+  padding: 0 10px 0 0;
+  list-style: none
+}
 .home li { padding-bottom: 10px }
 .home li a, .home li time { display: block }
-@media only screen and (max-width: 576px) {
-  .home ul { max-height: 200px; overflow: scroll; padding-right: 10px }
-}
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
