@@ -191,7 +191,7 @@ blockquote cite { display: block; text-align: right }
   padding: 0 10px 0 0;
   list-style: none
 }
-.home li { padding-bottom: 5px }
+.home li { padding-bottom: 4px }
 .home li > a, .home li time { display: block }
 ::-webkit-scrollbar {
   -webkit-appearance: none;
