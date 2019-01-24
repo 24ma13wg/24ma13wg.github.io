@@ -116,6 +116,10 @@ blockquote cite { display: block; text-align: right }
 .todo { background-color: #ddeaae; border-color: #cce085 }
 .todo::before { content: "Todo: " }
 
+.highlight { background: #fffce6; padding: 8px 18px }
+.highlight p:first-child { margin-top: 0 }
+.highlight p:last-child { margin-bottom: 0 }
+
 /* Page styles */
 .company {
   max-width: none;
