@@ -1,0 +1,28 @@
+@import "../Colors";
+
+.form-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .save {
+    color: @white !important;
+    background-color: @green !important;
+    &:hover { background-color: darken(@green, 3%) !important; }
+  }
+  .cancel {
+    color: @white !important;
+    background-color: @grey !important;
+    &:hover {
+      color: @white !important;
+      background-color: darken(@grey, 3%) !important;
+    }
+  }
+  .delete {
+    color: @white !important;
+    background-color: @red !important;
+    &:hover {
+      color: @white !important;
+      background-color: darken(@red, 3%) !important;
+    }
+  }
+}
