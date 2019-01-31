@@ -79,7 +79,7 @@ blockquote cite { display: block; text-align: right }
   justify-content: center;
 }
 
-.rule { height: 1px; margin-top: 30px; border-top: 1px dotted }
+.rule { height: 1px; margin-top: 15px; border-top: 1px dotted }
 
 .lead { margin-top: 50px }
 
@@ -195,8 +195,11 @@ blockquote cite { display: block; text-align: right }
   padding: 0 10px 0 0;
   list-style: none
 }
-.home li { padding-bottom: 4px }
+.home li { padding-bottom: 15px }
 .home li > a, .home li time { display: block }
+.home li > a { line-height: 25px }
+.home .about { margin: 30px 0 50px; font-style: italic }
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
@@ -206,4 +209,3 @@ blockquote cite { display: block; text-align: right }
   background-color: rgba(191, 191, 191, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
-.home .about { margin: 30px 0 50px; font-style: italic }
