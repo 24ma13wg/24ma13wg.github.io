@@ -69,7 +69,8 @@ kbd {
   font-size: 17px;
 }
 
-blockquote { background: #fafafa; padding: 10px }
+blockquote { background: #fafafa; margin: 0; padding: 30px }
+blockquote ul { margin: 0; padding-left: 20px }
 blockquote cite { display: block; text-align: right }
 
 /* Component styles */

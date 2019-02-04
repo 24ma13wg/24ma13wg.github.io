@@ -28,8 +28,8 @@ class App extends Component {
             <time dateTime="2015-11-01 00:00" className="time-gt">November, 2015</time>
           </small>
         </div>
-        <div className="gym-tracker">
-          <h1>CrossFit workouts</h1>
+        <div className="gym-tracker lead-gt">
+          <h1>My workouts</h1>
           <DataVisControls
             on10WeeksClick={this._on10WeeksClick.bind(this)}
             on52WeeksClick={this._on52WeeksClick.bind(this)}
@@ -51,8 +51,10 @@ class App extends Component {
           />
         </div>
         <div>
-          <p className="lead-gt">Here, I am generating tables with <a href="https://d3js.org/" target="_blank">D3</a>, inside of <a href="https://facebook.github.io/react/" target="_blank">React</a> components. This application could help a gym goer to track their workouts by showing, visually, how varied their workouts are (or not). The content, in this example, is based on <a href="https://www.crossfit.com/" target="_blank">CrossFit</a> workouts, but anything could be tracked, such as different lengths of a training run. To preserve the data, I have disabled the add and remove buttons.</p>
-          <footer className="footer-gt"></footer>
+          <p>Here, I am generating tables with <a href="https://d3js.org/" target="_blank">D3</a>, inside of <a href="https://facebook.github.io/react/" target="_blank">React</a> components. This application could help a gym goer to track their workouts by showing, visually, how varied their workouts are (or not). The content, in this example, is based on <a href="https://www.crossfit.com/" target="_blank">CrossFit</a> workouts, but anything could be tracked, such as different lengths of a training run. To preserve the data, I have disabled the add and remove buttons.</p>
+          <footer className="footer-gt">
+            <small><a href="#top">Back to top</a></small>
+          </footer>
         </div>
       </div>
     );
