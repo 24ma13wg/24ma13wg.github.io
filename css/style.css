@@ -1,6 +1,10 @@
 /* Base styles */
 a:link, a:visited, a:hover, a:active { color: blue; text-decoration: none }
 
+blockquote { background: #fafafa; margin: 0; padding: 30px }
+blockquote ul { margin: 0; padding-left: 20px }
+blockquote cite { display: block; text-align: right }
+
 body {
   max-width: 960px;
   min-height: 100%;
@@ -40,6 +44,16 @@ h3 { margin: 45px 0 10px; font-size: 25px; line-height: 30px }
 
 html { height: 100% }
 
+kbd {
+  color: #f5f5f5;
+  background: #3c3c3c;
+  margin: 0 1px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Work Sans";
+  font-size: 17px;
+}
+
 nav { padding-top: 30px }
 
 pre, code {
@@ -59,20 +73,6 @@ pre {
 
 time { font-style: italic }
 
-kbd {
-  color: #f5f5f5;
-  background: #3c3c3c;
-  margin: 0 1px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-family: "Work Sans";
-  font-size: 17px;
-}
-
-blockquote { background: #fafafa; margin: 0; padding: 30px }
-blockquote ul { margin: 0; padding-left: 20px }
-blockquote cite { display: block; text-align: right }
-
 /* Component styles */
 .centre {
   display: flex;
@@ -80,46 +80,30 @@ blockquote cite { display: block; text-align: right }
   justify-content: center;
 }
 
-.rule { height: 1px; margin-top: 15px; border-top: 1px dotted }
-
-.lead { margin-top: 50px }
-
-/* Message styles */
-.message { padding: 20px 20px 20px 40px; border-left: 15px solid }
-.message::before { font-weight: bold }
-
-.call-to-action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  text-align: center
-}
-.call-to-action span {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word
-}
-@media only screen and (min-width: 576px) {
-  .call-to-action {
-    flex-direction: row;
-    padding-left: 40px;
-    text-align: left
-  }
-  .call-to-action svg { flex-shrink: 0 }
-  .call-to-action span { margin-left: 20px }
-}
-.call-to-action { background-color: #ffffe6; border-color: #f5f5ba }
-
-.error { background-color: #fff1f1; border-color: #f3dcdc }
-.error::before { content: "Error: " }
-
-.todo { background-color: #ddeaae; border-color: #cce085 }
-.todo::before { content: "Todo: " }
-
 .highlight { background: #f5f7f3; margin: 0 -20px; padding: 15px 20px }
 .highlight p:first-child { margin-top: 0 }
 .highlight p:last-child { margin-bottom: 0 }
+
+.lead { margin-top: 50px }
+
+.message {
+  background-color: #ffffe6;
+  padding: 20px 20px 20px 40px;
+  border-left: 15px solid #f5f5ba
+}
+.message::before { font-weight: bold }
+
+.rule { height: 1px; margin-top: 15px; border-top: 1px dotted }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(191, 191, 191, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
 
 /* Page styles */
 .company {
@@ -200,13 +184,3 @@ blockquote cite { display: block; text-align: right }
 .home li > a, .home li time { display: block }
 .home li > a { line-height: 25px }
 .home .about { margin: 30px 0 50px; font-style: italic }
-
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 5px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(191, 191, 191, 0.5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-}
