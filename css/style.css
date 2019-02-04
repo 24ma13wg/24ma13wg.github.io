@@ -93,8 +93,6 @@ time { font-style: italic }
 }
 .message::before { font-weight: bold }
 
-.rule { height: 1px; margin-top: 15px; border-top: 1px dotted }
-
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
@@ -158,23 +156,18 @@ time { font-style: italic }
   background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23d7d7d7' fill-opacity='0.25' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 .home h1 {
-  margin: 50px 0 0;
+  margin: 50px 0 30px;
   padding: 0;
   border-top: none;
   border-bottom: none;
   font-size: 35px;
-  line-height: initial
+  line-height: normal;
 }
-.home h1 span { margin-left: 10px }
-.home h2 {
-  margin: 30px 0 10px;
-  padding: 0;
-  font-size: 35px;
-  line-height: initial
-}
-.home p { margin: 5px 0; padding: 0 }
+.home section:first-of-type { border-top: 1px dotted }
+.home section { padding: 20px 0; border-bottom: 1px dotted }
+.home h2 { margin: 0 0 15px }
 .home ul {
-  max-height: 150px;
+  height: 150px;
   overflow: scroll;
   margin: 0;
   padding: 0 10px 0 0;
