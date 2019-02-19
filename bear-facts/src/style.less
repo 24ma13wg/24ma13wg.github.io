@@ -1,0 +1,218 @@
+@text-color: rgb(51, 51, 51);
+@card-color: rgb(224, 209, 209);
+@name-bg-color: rgba(0, 0, 0, 0.3);
+@line-color: rgb(238, 238, 238);
+@width: 320px;
+@height: 480px;
+@offset: 25px;
+@border-width: 12px;
+@winner: rgb(208, 241, 158);
+@no-winner: rgb(240, 240, 240);
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: @height + (@border-width * 2);
+    color: @text-color;
+}
+
+.cards {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    &.stack-0 {
+        flex-direction: row-reverse;
+        .card:nth-child(1) {
+            left: 0 - @width;
+            z-index: 0;
+        }
+        .card:nth-child(2) {
+            left: 0 - @width - (@offset * 1);
+            z-index: -1;
+        }
+        .card:nth-child(3) {
+            left: 0 - @width - (@offset * 2);
+            z-index: -2;
+        }
+        .card:nth-child(4) {
+            left: 0 - @width - (@offset * 3);
+            z-index: -3;
+        }
+        .card:nth-child(5) {
+            left: 0 - @width - (@offset * 4);
+            z-index: -4;
+        }
+        .card:nth-child(6) {
+            left: 0 - @width - (@offset * 5);
+            z-index: -5;
+        }
+        .card:nth-child(7) {
+            left: 0 - @width - (@offset * 6);
+            z-index: -6;
+        }
+        .card:nth-child(8) {
+            left: 0 - @width - (@offset * 7);
+            z-index: -7;
+        }
+    }
+    &.stack-1 {
+        .card:nth-child(1) {
+            left: 0;
+            z-index: 0;
+        }
+        .card:nth-child(2) {
+            left: @offset * 1;
+            z-index: -1;
+        }
+        .card:nth-child(3) {
+            left: @offset * 2;
+            z-index: -2;
+        }
+        .card:nth-child(4) {
+            left: @offset * 3;
+            z-index: -3;
+        }
+        .card:nth-child(5) {
+            left: @offset * 4;
+            z-index: -4;
+        }
+        .card:nth-child(6) {
+            left: @offset * 5;
+            z-index: -5;
+        }
+        .card:nth-child(7) {
+            left: @offset * 6;
+            z-index: -6;
+        }
+        .card:nth-child(8) {
+            left: @offset * 7;
+            z-index: -7;
+        }
+    }
+}
+
+.card {
+    position: absolute;
+    top: -240px;
+    width: @width;
+    height: @height;
+    background-color: @card-color;
+    border-radius: 10px;
+    box-shadow: 0 0 0 (@border-width - 2px) @card-color, 0 0 0 @border-width white;
+}
+
+.face-up {
+    .picture {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: @height / 2;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        .name {
+            background-color: @name-bg-color;
+            color: white;
+            padding: 10px;
+            .common-name {
+                font-weight: bold;
+            }
+        }
+    }
+    .facts {
+        display: flex;
+        flex-direction: column;
+        height: 240px;
+        padding: 0;
+        .fact {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            background-color: white;
+            border-bottom: 1px solid @line-color;
+            cursor: pointer;
+            div {
+                flex: 1;
+                &:first-child {
+                    color: lighten(@text-color, 30%);
+                    padding-left: 10px;
+                    &::after {
+                        content: ':';
+                    }
+                }
+                &:last-child {
+                    padding-right: 10px;
+                    text-align: right;
+                }
+            }
+            &:last-child {
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                div {
+                    border-bottom: 0;
+                }
+            }
+            &:active {
+                div {
+                    color: black;
+                }
+            }
+        }
+        @keyframes winner {
+            0% {
+              background-color: white;
+            }
+            25% {
+                background-color: @winner;
+            }
+            100% {
+              background-color: @winner;
+            }
+        }
+        .winner {
+            animation: 3s ease-out 0s 1 winner;
+        }
+        @keyframes no-winner {
+            0% {
+              background-color: white;
+            }
+            25% {
+                background-color: @no-winner;
+            }
+            100% {
+              background-color: @no-winner;
+            }
+        }
+        .loser, .draw {
+            animation: 3s ease-out 0s 1 no-winner;
+        }
+    }
+}
+
+.face-down {
+    .picture, .facts {
+        display: none;
+    }
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAPUlEQVQoU2P8////fwYcoNLTk4ERlwKQZPv27dgVwCRBBmOYgCyJoQBdEkUBNkm4AlySYAUVHh7/Qa7FBQBDgjL01emnxAAAAABJRU5ErkJggg==);
+    background-repeat: repeat;
+}
+
+.messages {
+    margin: 0 22px;
+    width: 105px;
+    text-align: center;
+    line-height: 1.5;
+    .arrow {
+        color: lightgray;
+        font-size: 80%;
+    }
+}
