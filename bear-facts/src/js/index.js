@@ -9,10 +9,12 @@ const controlGame = () => {
     const game = new Game;
     game.firstRound();
     cardsView.renderCards(game.stacks, game.challenger);
-    let messages = game.challenger === 0 ? ['<span class="arrow">◀</span> Player 1<br />Choose first fact'] : ['Player 2 <span class="arrow">▶</span><br />Choose first fact'];
+    let messages = game.challenger === 0
+        ? ['<span class="arrow">◀</span> Player 1<br />Choose first fact']
+        : ['Player 2 <span class="arrow">▶</span><br />Choose first fact'];
     messagesView.setMessages(messages);
-    document.body.addEventListener('click', e => {
-        
+    document.querySelector('.game').addEventListener('click', e => {
+
         // Turn opposing card
         game.playCard();
         cardsView.clearCards();
