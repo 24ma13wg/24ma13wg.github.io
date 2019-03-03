@@ -9,13 +9,16 @@
 
 .game {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     color: @text-color;
 }
 
 .cards {
     display: flex;
-    width: @width + (@width * .09) * 3;
+    justify-content: center;
+    width: 360px;
     &.stack-0 {
         flex-direction: row-reverse;
     }
@@ -44,10 +47,14 @@
     .picture {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: space-between;
         height: @height / 2;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+        .player {
+            color: @card-color;
+            padding: 0px 10px;
+        }
         .name {
             background-color: @name-bg-color;
             color: white;
@@ -137,12 +144,9 @@
 }
 
 .messages {
-    margin: 0 22px;
-    width: 105px;
-    text-align: center;
+    justify-content: center;
+    flex: 1 1 100px;
+    padding: 10px;
     line-height: 1.5;
-    .arrow {
-        color: lightgray;
-        font-size: 80%;
-    }
+    text-align: center;
 }

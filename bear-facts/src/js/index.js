@@ -10,8 +10,8 @@ const controlGame = () => {
     game.firstRound();
     cardsView.renderCards(game.stacks, game.challenger);
     let messages = game.challenger === 0
-        ? ['<span class="arrow">◀</span> Player 1<br />Choose first fact']
-        : ['Player 2 <span class="arrow">▶</span><br />Choose first fact'];
+        ? ['Player 1 choose first fact']
+        : ['Player 2 choose first fact'];
     messagesView.setMessages(messages);
     document.body.addEventListener('click', e => {
         if (e.target.closest('.fact')) {
@@ -27,10 +27,10 @@ const controlGame = () => {
             game.compareCards(fact);
             switch (game.result.winner) {
                 case 0:
-                messages = ['<span class="arrow">◀</span> Player 1 wins!'];
+                messages = ['Player 1 wins!'];
                 break;
                 case 1:
-                    messages = ['Player 2 wins! <span class="arrow">▶</span>'];
+                    messages = ['Player 2 wins!'];
                     break;
                 default:
                     messages = ['Draw'];
@@ -47,7 +47,7 @@ const controlGame = () => {
                     cardsView.clearCards();
                     cardsView.renderCards(game.stacks, game.challenger, game.opposer, game.cardPlayed, game.over);
                     const gameWinner = game.result.winner === 0 ? 'Player 1 wins!' : 'Player 2 wins!';
-                    messagesView.setMessages([`Game over<br />${gameWinner}`]);
+                    messagesView.setMessages([`Game over ${gameWinner}`]);
                 } else {
 
                     // Next round
@@ -55,8 +55,8 @@ const controlGame = () => {
                     cardsView.clearCards();
                     cardsView.renderCards(game.stacks, game.challenger, game.opposer, game.cardPlayed);
                     messages = game.challenger === 0
-                        ? ['<span class="arrow">◀</span> Player 1<br />Choose next fact']
-                        : [' Player 2 <span class="arrow">▶</span><br />Choose next fact'];
+                        ? ['Player 1 choose next fact']
+                        : [' Player 2 choose next fact'];
                     messagesView.setMessages(messages);
                 }
             }, 3000);

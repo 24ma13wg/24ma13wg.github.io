@@ -21,6 +21,7 @@ export const renderCards = (stacks, challenger, opposer, cardPlayed, over) => {
                 <div class='wrapper'>
                     <div class="card ${cardFace}" style="pointer-events: ${pointerEvents};">
                         <div class="picture" style="background-image: url(./img/${card.image})">
+                            <div class="player">Player ${player + 1}</div>
                             <div class="name">
                                 <div class="common-name">${card.commonName}</div>
                                 <div class="binomial-name">${card.binomialName}</div>
