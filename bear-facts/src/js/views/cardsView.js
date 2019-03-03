@@ -18,31 +18,33 @@ export const renderCards = (stacks, challenger, opposer, cardPlayed, over) => {
                 pointerEvents = 'none';
             }
             const markup = `
-                <div class="card ${cardFace}" style="pointer-events: ${pointerEvents};">
-                    <div class="picture" style="background-image: url(./img/${card.image})">
-                        <div class="name">
-                            <div class="common-name">${card.commonName}</div>
-                            <div class="binomial-name">${card.binomialName}</div>
+                <div class='wrapper'>
+                    <div class="card ${cardFace}" style="pointer-events: ${pointerEvents};">
+                        <div class="picture" style="background-image: url(./img/${card.image})">
+                            <div class="name">
+                                <div class="common-name">${card.commonName}</div>
+                                <div class="binomial-name">${card.binomialName}</div>
+                            </div>
                         </div>
+                        <ul class="facts">
+                            <li class="fact" data-label="height" data-value="${card.height}">
+                                <div class="label">Height</div>
+                                <div class="value">${card.height} m</div>
+                            </li>
+                            <li class="fact" data-label="weight" data-value="${card.weight}">
+                                <div class="label">Weight</div>
+                                <div class="value">${card.weight} kg</div>
+                            </li>
+                            <li class="fact" data-label="speed" data-value="${card.speed}">
+                                <div class="label">Speed</div>
+                                <div class="value">${card.speed} km/h</div>
+                            </li>
+                            <li class="fact" data-label="lifespan" data-value="${card.lifespan}">
+                                <div class="label">Lifespan</div>
+                                <div class="value">${card.lifespan} years</div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="facts">
-                        <li class="fact" data-label="height" data-value="${card.height}">
-                            <div class="label">Height</div>
-                            <div class="value">${card.height} m</div>
-                        </li>
-                        <li class="fact" data-label="weight" data-value="${card.weight}">
-                            <div class="label">Weight</div>
-                            <div class="value">${card.weight} kg</div>
-                        </li>
-                        <li class="fact" data-label="speed" data-value="${card.speed}">
-                            <div class="label">Speed</div>
-                            <div class="value">${card.speed} km/h</div>
-                        </li>
-                        <li class="fact" data-label="lifespan" data-value="${card.lifespan}">
-                            <div class="label">Lifespan</div>
-                            <div class="value">${card.lifespan} years</div>
-                        </li>
-                    </ul>
                 </div>
             `;
             if (!player) {

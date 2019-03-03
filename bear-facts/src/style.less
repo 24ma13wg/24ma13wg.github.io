@@ -4,111 +4,40 @@
 @line-color: rgb(238, 238, 238);
 @width: 320px;
 @height: 480px;
-@offset: 25px;
-@border-width: 12px;
 @winner: rgb(208, 241, 158);
 @no-winner: rgb(240, 240, 240);
 
-html {
-    height: 100%;
-}
-
-body {
-    height: 100%;
-}
-
 .game {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: @height + (@border-width * 2);
     color: @text-color;
 }
 
 .cards {
     display: flex;
-    position: relative;
-    margin: 0;
-    padding: 0;
+    width: @width + (@width * .09) * 3;
     &.stack-0 {
         flex-direction: row-reverse;
-        .card:nth-child(1) {
-            left: 0 - @width;
-            z-index: 0;
-        }
-        .card:nth-child(2) {
-            left: 0 - @width - (@offset * 1);
-            z-index: -1;
-        }
-        .card:nth-child(3) {
-            left: 0 - @width - (@offset * 2);
-            z-index: -2;
-        }
-        .card:nth-child(4) {
-            left: 0 - @width - (@offset * 3);
-            z-index: -3;
-        }
-        .card:nth-child(5) {
-            left: 0 - @width - (@offset * 4);
-            z-index: -4;
-        }
-        .card:nth-child(6) {
-            left: 0 - @width - (@offset * 5);
-            z-index: -5;
-        }
-        .card:nth-child(7) {
-            left: 0 - @width - (@offset * 6);
-            z-index: -6;
-        }
-        .card:nth-child(8) {
-            left: 0 - @width - (@offset * 7);
-            z-index: -7;
-        }
     }
     &.stack-1 {
-        .card:nth-child(1) {
-            left: 0;
-            z-index: 0;
-        }
-        .card:nth-child(2) {
-            left: @offset * 1;
-            z-index: -1;
-        }
-        .card:nth-child(3) {
-            left: @offset * 2;
-            z-index: -2;
-        }
-        .card:nth-child(4) {
-            left: @offset * 3;
-            z-index: -3;
-        }
-        .card:nth-child(5) {
-            left: @offset * 4;
-            z-index: -4;
-        }
-        .card:nth-child(6) {
-            left: @offset * 5;
-            z-index: -5;
-        }
-        .card:nth-child(7) {
-            left: @offset * 6;
-            z-index: -6;
-        }
-        .card:nth-child(8) {
-            left: @offset * 7;
-            z-index: -7;
+        .wrapper:not(:first-child) {
+            direction: rtl;
         }
     }
 }
 
-.card {
-    position: absolute;
-    top: -240px;
-    width: @width;
-    height: @height;
-    background-color: @card-color;
-    border-radius: 10px;
-    box-shadow: 0 0 0 (@border-width - 2px) @card-color, 0 0 0 @border-width white;
+.wrapper {
+    overflow: hidden;
+    .card {
+        height: @height;
+        width: @width;
+        background-color: @card-color;
+        border-radius: 10px;
+        border: 1px solid @card-color;
+    }
+    &:first-child {
+        overflow: visible;
+    }
 }
 
 .face-up {
@@ -131,7 +60,8 @@ body {
     .facts {
         display: flex;
         flex-direction: column;
-        height: 240px;
+        height: @height / 2;
+        margin: 0;
         padding: 0;
         .fact {
             display: flex;
