@@ -47,7 +47,7 @@ const controlGame = () => {
                     cardsView.clearCards();
                     cardsView.renderCards(game.stacks, game.challenger, game.opposer, game.cardPlayed, game.over);
                     const gameWinner = game.result.winner === 0 ? 'Player 1 wins!' : 'Player 2 wins!';
-                    messagesView.setMessages([`Game over ${gameWinner}`]);
+                    messagesView.setMessages([`Game over. ${gameWinner}`]);
                 } else {
 
                     // Next round
