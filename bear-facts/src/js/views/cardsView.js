@@ -31,7 +31,7 @@ export const renderCards = (stacks, challenger, opposer, cardPlayed, over) => {
                         <ul class="facts">
                             <li class="fact" data-label="height" data-value="${card.height}">
                                 <div class="label">Height</div>
-                                <div class="value">${card.height} m</div>
+                                <div class="value">${card.height} cm</div>
                             </li>
                             <li class="fact" data-label="weight" data-value="${card.weight}">
                                 <div class="label">Weight</div>
