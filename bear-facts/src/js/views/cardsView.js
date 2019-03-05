@@ -17,10 +17,11 @@ export const renderCards = (stacks, challenger, opposer, cardPlayed, over) => {
                 cardFace = 'face-down';
                 pointerEvents = 'none';
             }
+            const className = card.commonName.toLowerCase().split(' ').join('-');
             const markup = `
                 <div class='wrapper'>
                     <div class="card ${cardFace}" style="pointer-events: ${pointerEvents};">
-                        <div class="picture" style="background-image: url(./img/${card.image})">
+                        <div class="picture ${className}">
                             <div class="player">Player ${player + 1}</div>
                             <div class="name">
                                 <div class="common-name">${card.commonName}</div>

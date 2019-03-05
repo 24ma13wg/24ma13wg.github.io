@@ -1,7 +1,7 @@
 {
-  "name": "bear-top-trumps",
+  "name": "bear-facts-card-game",
   "version": "1.0.0",
-  "description": "Bear top trumps card game.",
+  "description": "Bear facts card game.",
   "main": "script.js",
   "scripts": {
     "dev": "webpack --mode development",
