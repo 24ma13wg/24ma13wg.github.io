@@ -80,7 +80,7 @@ time { font-style: italic }
   justify-content: center;
 }
 
-.highlight { background: #f5f7f3; margin: 0 -20px; padding: 15px 20px }
+.highlight { background: #eff1d1; margin: 0 -20px; padding: 15px 20px }
 .highlight p:first-child { margin-top: 0 }
 .highlight p:last-child { margin-bottom: 0 }
 
