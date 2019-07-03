@@ -100,41 +100,6 @@ time { font-style: italic }
 }
 
 /* Page styles */
-.company {
-  max-width: none;
-  min-height: 0;
-  background: #f2f5eb;
-  margin: 0;
-  padding: 0
-}
-.company section {
-  max-width: 960px;
-  min-height: 100%;
-  margin: 0 auto;
-  padding: 0 20px 0
-}
-.company section.brand {
-  display: flex;
-  align-items: flex-end;
-  padding-top: 100px
-}
-.company section.brand svg {
-  margin-right: 20px;
-}
-.company header { background: #fcfff4 }
-.company header h1 {
-  margin: 0;
-  padding: 0;
-  border-top: none;
-  border-bottom: none;
-  font-size: 25px;
-  line-height: normal
-}
-.company main h2 { font-size: 25px }
-.company ul { margin: 0; padding: 0; list-style: none }
-.company time { font-size: 20px }
-.company footer { text-align: center }
-
 .cv h1 {
   margin-top: 76px;
   border-top: none;
