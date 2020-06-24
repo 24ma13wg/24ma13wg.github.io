@@ -8,7 +8,7 @@
     <link href="../css/style.css" media="all" rel="stylesheet" />
     <link href="css/style.css" media="all" rel="stylesheet" />
     <link rel="icon" href="https://pages.github.com/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://24ma13wg.github.io/searching-for-rivers-in-unterfranken/page.html" />
+    <link rel="canonical" href="https://jbd44x.github.io/searching-for-rivers-in-unterfranken/page.html" />
   </head>
   <body>
     <svg class="map" width="0" height="0" display="block"></svg>
@@ -94,7 +94,7 @@ GET lower_franconia/default/_search
     <p>I get 91 hits. A quarter of all communities are on the Main. The result is formatted in – yes you guessed it – JSON. Although JSON is quite readable, it's not easy to understand at a glance. Better to create a data visualisation with <a href="https://d3js.org/" target="_blank">d3.js</a> so that the results can be understood instantly.</p>
     <svg id="0" class="map" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
     <figcaption>Hey Elasticsearch, which communities does the river Main flow through?</figcaption>
-    <p>For more details about how this is done, see my previous post on <a href="https://24ma13wg.github.io/could-brown-bear-black-bear-polar-bear-meet/page.html" target="_blank">web page cartography</a>. Next up, how many rivers are close by? If I want to stroll by a river this evening, but don't want to travel, say more than ten kilometres, what are my options?</p>
+    <p>For more details about how this is done, see my previous post on <a href="https://jbd44x.github.io/could-brown-bear-black-bear-polar-bear-meet/page.html" target="_blank">web page cartography</a>. Next up, how many rivers are close by? If I want to stroll by a river this evening, but don't want to travel, say more than ten kilometres, what are my options?</p>
     <svg id="1" class="map" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 840"></svg>
     <figcaption>How many rivers are within ten kilometres of my desk?</figcaption>
     <p>Four hits come back: the rivers Aschach, Fränkische Saale, of course, Thulba, and Premich. This query is slightly different from the previous one. This time I only want rivers to be returned. Also, I am specifying a new shape that does not exist in the index: a circle which is centred on my current location with a radius of ten kilometres.</p>
